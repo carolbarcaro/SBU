@@ -1,0 +1,102 @@
+body {
+    background-color: whitesmoke;
+    text-align: center;
+    margin-top: 5vh;
+    font-family: 'Public Sans', sans-serif;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#imagem {
+    text-align: left;
+    margin-left: 15vw;
+}
+
+img {
+    width: 250px;
+    height: auto;
+}
+
+#texto {
+    text-align: right;
+    margin-right: 15vw;
+}
+
+h1 {
+    color: #214293;
+}
+
+p {
+    color: #214293;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.formAluno {
+    background-color: #214293;
+    width: 50vw;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    border: 1px solid #fde071;
+    border-radius: 8px;
+}
+
+#leftRow,
+#rightRow {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 45%;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+.label {
+    color: white;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.input {
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+    width: 18vw;
+    height: 4vh;
+    color: gray;
+    font-size: 12px;
+    text-align: left;
+    padding: 5px;
+    justify-content: left;
+}
+
+#btnCadastrar {
+    background-color: #fde071;
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 18vw;
+    height: 6vh;
+    color: black;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}

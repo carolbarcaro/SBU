@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro do Aluno PUC-Campinas</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div id="imagem">
+            <img src="https://www.puc-campinas.edu.br/wp-content/uploads/2022/06/logo-puc.png" alt="PUC Campinas">
+        </div>
+        <div id="texto">
+            <h1>Complete seu cadastro!</h1>
+            <p>Bem-vindo ao sistema de gestão bibliotecário</p>
+            <p>PUC-Campinas!</p>
+        </div>
+    </header>
+
+    <main>
+        <form class="formAluno" action="#" method="post">
+            <div id="leftRow">
+                <div class="inputGroup">
+                    <label class="label" for="nome">Nome:</label>
+                    <input class="input" type="text" id="nome" name="nome" placeholder="Digite seu nome">
+                </div>
+
+                <div class="inputGroup">
+                    <label class="label" for="ra">R.A:</label>
+                    <input class="input" type="text" id="ra" name="ra" placeholder="Digite seu RA">
+                </div>
+            </div>
+            <div id="rightRow">
+                <div class="inputGroup">
+                    <label class="label" for="email">Email:</label>
+                    <input class="input" type="email" id="email" name="email" placeholder="Digite seu e-mail">
+                </div>
+                <div class="inputGroup">
+                    <label class="label" for="telefone">Telefone:</label>
+                    <input class="input" type="tel" id="telefone" name="telefone" placeholder="Digite seu telefone">
+                </div>
+            </div>
+        </form>
+        <div>
+            <button id="btnCadastrar" type="submit">Cadastrar</button>
+        </div>
+    </main>
+
+</body>
+
+</html>
