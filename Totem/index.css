@@ -1,3 +1,67 @@
-.titulo-inicial{
+.cabecalho {
+    display: flex;             
+    align-items: center;       /* alinha verticalmente */
+    gap: 60px;                 /* espaço entre logo e título */
+    justify-content: center;   /* centraliza no meio da tela */
+    margin-top: 20px;
+    text-align: center;        /* centraliza o texto dentro do título */
+}
+
+.titulo-inicial {
     color: rgb(1, 1, 90);
+    font-size: 50px; 
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    max-width: 700px;          /* controla a largura para quebrar em duas linhas */
+    word-wrap: break-word;     /* permite a quebra */
+}
+
+
+.logo {
+    height: 120px;  /* ajusta a altura */
+    width: auto;    /* mantém proporção */
+}
+
+
+.posicionada{
+    position: absolute;
+    top: 60px;
+    left: 100px;
+    width: 270px;   
+}
+
+.opcoes {
+    margin-top: 40px;          /* distância do cabeçalho */
+    display: flex;
+    flex-direction: column;    /* coloca um embaixo do outro */
+    gap: 40px;                 /* espaço entre os botões */
+    align-items: center;       /* centraliza horizontalmente */
+    justify-content: center;   /* centraliza verticalmente */
+    width: 100%;               /* ocupa toda a largura disponível */
+}
+
+.caixa {
+    background-color: rgb(1, 1, 90);
+    color: white;
+    width: 350px;              /* aumenta a largura */
+    padding: 55px 0;           /* aumenta a altura */
+    font-size: 42px;           /* aumenta o texto */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center; 
+    border-radius: 35px;
+    font-weight: bold;
+    cursor: pointer;           
+    border: 3px solid rgba(255, 255, 0, 0.799);  /* borda amarela */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);  /* sombra */
+    transition: all 0.3s;
+}
+
+.caixa:hover {
+    transform: translateY(-3px);   /* efeito leve ao passar o mouse */
+    box-shadow: 0 12px 20px rgba(0,0,0,0.4); /* sombra mais intensa */
+}
+
+
+header{
+    background-color: rgb(1, 1, 90);
 }
