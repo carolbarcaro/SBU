@@ -1,4 +1,5 @@
 body {
+    background-color: whitesmoke;
     text-align: center; 
     margin-top: 5vh;
     font-family: 'Public Sans', sans-serif;
@@ -15,7 +16,7 @@ img {
 }
 
 #btnCadastro {
-    background-color: #214293;
+    background-color: rgb(1, 1, 90);
     border: 1px solid #fde071;
     border-radius: 8px;
     width: 300px;
@@ -28,7 +29,7 @@ img {
 }
 
 #btnLogin {
-    background-color: #214293;
+    background-color: rgb(1, 1, 90);
     border: 1px solid #fde071;
     border-radius: 8px;
     width: 300px;

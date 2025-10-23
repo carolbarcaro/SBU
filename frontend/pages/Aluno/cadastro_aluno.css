@@ -27,11 +27,11 @@ img {
 }
 
 h1 {
-    color: #214293;
+    color: rgb(1, 1, 90);
 }
 
 p {
-    color: #214293;
+     color: rgb(1, 1, 90);
 }
 
 main {
@@ -43,7 +43,7 @@ main {
 }
 
 .formAluno {
-    background-color: #214293;
+    background-color: rgb(1, 1, 90);
     width: 50vw;
     padding: 40px;
     display: flex;
