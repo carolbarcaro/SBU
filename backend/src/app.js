@@ -12,7 +12,7 @@ app.get('/api', async (req, res) => {
   try {
     const [rows] = await pool.query('SELECT NOW() AS hora_atual');
     res.json({
-      message: 'Conexão bem-sucedida com o MySQL 🎉',
+      message: 'Conexão bem-sucedida com o MySQL',
       hora_atual: rows[0].hora_atual
     });
   } catch (error) {
@@ -24,4 +24,11 @@ app.get('/api', async (req, res) => {
 // rotas de alunos
 app.use('/api/alunos', alunoRoutes);
 
+// iniciando o servidor
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor rodando com sucesso na porta ${PORT}`);
+});
+
 module.exports = app;
+

@@ -1,10 +1,10 @@
 const mysql = require('mysql2/promise');
 
-// Configuração da conexão
+
 const pool = mysql.createPool({
-  host: 'localhost',
-  user: 'root',
-  password: '123123', // coloque a senha se houver
+  host: '172.16.12.14',
+  user: 'BD24022522',
+  password: 'Nqibf2', 
   database: 'biblioteca_universitaria',
   port: 3306,
   waitForConnections: true,
