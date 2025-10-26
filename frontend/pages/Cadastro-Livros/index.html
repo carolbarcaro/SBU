@@ -4,56 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cadastro-livros.css">
+    <link rel="stylesheet" href="cadastro_livros.css">
     <title>Document</title>
 </head>
 
 <body>
-    <h1>Programa do Bibliotecário</h1>
-
-    <div id="containerTitulo2">
-        <h2>PUC Campinas</h2>
-    </div>
     
-    <div class="imagem-puc">
-      <img src="Brasão_PUC-Campinas_-_Transparente (1).png" alt="Brasão Puc" class="Brasao">
+    <header id="Header">
+        <p id="textHeader">o o o</p>
+    </header>
+
+    <div class="cabecalho">
+        <div id="LogoPuc">
+            <img  src="../../assets/Imagens/Logo_Puc.png" class="logo" alt="Logo da PUC Campinas" width="215vw" height="90vh">
+        </div>
+
+        <div id="texto">
+            <h1>Área para cadastro de livros</h1>
+            <p>Preencha os dados abaixo para adicionar um novo título ao sistema!</p>
+        </div>
     </div>
     
     <main>
-        <div class="formulario-container">
-            <p class="inicio">Preencha os dados abaixo para adicionar um novo título ao acervo da biblioteca.</p>
-
-            <form id="containerFormulario">
-                <div class="linha">
-                    <div class="campo">
-                        <label for="codigo">CÓDIGO:</label>
-                        <input required type="text" id="codigo" placeholder="Código do livro">
-                    </div>
-                    <div class="campo">
-                        <label for="titulo">TÍTULO:</label>
-                        <input required type="text" id="titulo" placeholder="Nome do livro">
-                    </div>
+        
+        <form class="formLivro" action="#" method="post">
+            <div id="leftRow">
+                <div class="inputGroup">
+                    <label class="label" for="codigo">Código:</label>
+                    <input class="input" type="text" id="codigo" placeholder="Código do livro">
                 </div>
 
-                <div class="linha">
-                    <div class="campo">
-                        <label for="editora">EDITORA:</label>
-                        <input required type="text" id="editora" placeholder="Nome da editora">
-                    </div>
-                    <div class="campo">
-                        <label for="ano">ANO:</label>
-                        <input required type="text" id="ano" placeholder="Ano de lançamento">
-                    </div>
+                <div class="inputGroup">
+                    <label class="label" for="titulo">Título:</label>
+                    <input class="input" type="text" id="titulo" placeholder="Título do livro">
                 </div>
-
-                <div class="botao-container">
-                    <button type="submit" class="botao" id="botao-salvar">SALVAR</button>
+            </div>
+            <div id="rightRow">
+                <div class="inputGroup">
+                    <label class="label" for="editora">Editora:</label>
+                    <input class="input" type="text" id="editora" placeholder="Nome da editora">
                 </div>
-            </form>
-
-            <p class="aviso">Certifique-se de que as informações estão corretas para facilitar a busca e o empréstimo
-                pelos leitores.</p>
+                <div class="inputGroup">
+                    <label class="label" for="ano">Ano:</label>
+                    <input class="input" type="text" id="ano" placeholder="Ano de lançamento">
+                </div>
+            </div>
+        </form>
+        <div class="botao_enter">
+            <button class="botao" type="submit">Cadastrar</button>
         </div>
+
     </main>
 
     <div id="toast-sucesso"></div>
