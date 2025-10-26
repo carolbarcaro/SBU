@@ -1,26 +1,39 @@
-.cabecalho {
-    display: flex;             
-    align-items: center;       /* alinha verticalmente */
-    gap: 60px;                 /* espaço entre logo e título */
-    justify-content: center;   /* centraliza no meio da tela */
-    margin-top: 20px;
-    text-align: center;        /* centraliza o texto dentro do título */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;  
 }
 
-.titulo-inicial {
+#Header{
+    background-color: rgb(1, 1, 90);
+}
+
+#textHeader{
+    color: antiquewhite;
+    padding: 1%;
+    font-family: "Poppins", sans-serif;
+}
+
+.cabecalho{
+    display: flex;
+    flex-direction: column;
+}
+
+#TituloPagina { 
+    width: 100%;
+    padding: 1%;
+    display: flex;            
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
     color: rgb(1, 1, 90);
-    font-size: 50px; 
-    font-weight: bold;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    max-width: 700px;          /* controla a largura para quebrar em duas linhas */
-    word-wrap: break-word;     /* permite a quebra */
-     font-family: 'Public Sans', sans-serif;
+    font-size: x-large;
 }
-
 
 .logo {
-    height: 120px;  /* ajusta a altura */
-    width: auto;    /* mantém proporção */
+    display: flex;
+    justify-content: left;
+    padding: 4%;
 }
 
 
@@ -32,9 +45,9 @@
 }
 
 .opcoes {
-    margin-top: 40px;          /* distância do cabeçalho */
+    margin-top: 1%;          /* distância do cabeçalho */
     display: flex;
-    flex-direction: column;    /* coloca um embaixo do outro */
+    justify-content: center;
     gap: 40px;                 /* espaço entre os botões */
     align-items: center;       /* centraliza horizontalmente */
     justify-content: center;   /* centraliza verticalmente */
@@ -45,11 +58,11 @@
     background-color: rgb(1, 1, 90);
     color: white;
     width: 350px;              /* aumenta a largura */
-    padding: 55px 0;           /* aumenta a altura */
+    padding: 45px 0;           /* aumenta a altura */
     font-size: 42px;           /* aumenta o texto */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Poppins", sans-serif;
     text-align: center; 
-    border-radius: 35px;
+    border-radius: 24px;
     font-weight: bold;
     cursor: pointer;           
     border: 3px solid rgba(255, 255, 0, 0.799);  /* borda amarela */
@@ -58,11 +71,6 @@
 }
 
 .caixa:hover {
-    transform: translateY(-3px);   /* efeito leve ao passar o mouse */
+    transform: translateY(-3px);
     box-shadow: 0 12px 20px rgba(0,0,0,0.4); /* sombra mais intensa */
-}
-
-
-header{
-    background-color: rgb(1, 1, 90);
 }
