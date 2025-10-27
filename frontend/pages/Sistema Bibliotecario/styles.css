@@ -1,55 +1,68 @@
-h1 {
-    color: rgb(1, 1, 90);
-    margin: auto;
-    margin-right: 0px;
-    margin-left: 500px;
-    font-size: 50px;
-    margin-top: 20px;
-    font-family: 'Public Sans', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0; 
 }
 
-h2 {
-    color: rgb(1, 1, 90);
-    margin: auto;
-    margin-right: 0px;
-    margin-left: 550px;
-    font-size: 45px;
-    margin-top: 20px;
-    font-family: 'Public Sans', sans-serif;
+#Header{
+    background-color: rgb(1, 1, 90);
 }
 
-.posicionada {
-    position: absolute;
-    top: 60px;
-    left: 100px;
-    width: 270px;
+#textHeader{
+    color: antiquewhite;
+    padding: 1%;
+    font-family: "Poppins", sans-serif;
+}
+
+.cabecalho{
+    display: flex;
+    flex-direction: column;
+}
+
+#TituloPagina { 
+    width: 100%;
+    padding: 1%;
+    display: flex;            
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    color: rgb(1, 1, 90);
+    font-size: x-large;
+}
+
+.logo {
+    display: flex;
+    justify-content: left;
+    padding: 4%;
 }
 
 .opcoes {
+    margin-top: 2%;          /* distância do cabeçalho */
     display: flex;
-    /* coloca as caixas lado a lado */
-    gap: 40px;
-    /* espaço entre os blocos */
     justify-content: center;
-    /* centraliza */
-    margin-top: 70px;
+    gap: 40px;                 /* espaço entre os botões */
+    align-items: center;       /* centraliza horizontalmente */
+    justify-content: center;   /* centraliza verticalmente */
+    width: 100%;               /* ocupa toda a largura disponível */
 }
 
 .caixa {
     background-color: rgb(1, 1, 90);
     color: white;
-    width: 300px;
-    /* largura */
-    padding: 7% 1%;
-    /* tamanho interno */
-    font-size: 30px;
-    text-align: center;
-    border-radius: 35px;
-    /* deixar redondo */
+    width: 350px;              /* aumenta a largura */
+    padding: 30px 0;           /* aumenta a altura */
+    font-size: 35px;           /* aumenta o texto */
+    font-family: "Poppins", sans-serif;
+    text-align: center; 
+    border-radius: 24px;
     font-weight: bold;
-    /* deixa o texto em negrito */
+    cursor: pointer;           
+    border: 3px solid rgba(255, 255, 0, 0.799);  /* borda amarela */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);  /* sombra */
+    transition: all 0.3s;
 }
 
-header {
-    background-color: rgb(1, 1, 90);
+.caixa:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.4); /* sombra mais intensa */
 }
