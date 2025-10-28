@@ -58,38 +58,7 @@
 
     <div id="toast-sucesso"></div>
     <div id="toast-erro"></div>
-
-    <script>
-        const botao = document.getElementById('botao');
-        const toastSucesso = document.getElementById('toast-sucesso');
-        const toastErro = document.getElementById('toast-erro');
-
-        botao.addEventListener('click', function(event) {
-            event.preventDefault(); // evita envio do form nao sei se terá q mudar na hr do bd
-
-            const codigo = document.getElementById('codigo').value.trim();
-            const titulo = document.getElementById('titulo').value.trim();
-            const editora = document.getElementById('editora').value.trim();
-            const ano = document.getElementById('ano').value.trim();
-
-            if (!codigo || !titulo || !editora || !ano) {
-                toastErro.textContent = 'Por favor, preencha todos os campos!';
-                toastErro.classList.add('show');
-                setTimeout(() => toastErro.classList.remove('show'), 3000);
-                return;
-            }
-
-            document.getElementById('codigo').value = '';
-            document.getElementById('titulo').value = '';
-            document.getElementById('editora').value = '';
-            document.getElementById('ano').value = '';
-
-            toastSucesso.textContent = 'As informações foram salvas com sucesso!';
-            toastSucesso.classList.add('show');
-            setTimeout(() => toastSucesso.classList.remove('show'), 3000);
-        });
-    </script>
-
+    <script src="cadastro_livros.js"></script>
 </body>
 
 </html>
