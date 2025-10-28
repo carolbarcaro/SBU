@@ -6,7 +6,6 @@
     <title>Cadastro do Aluno PUC-Campinas</title>
     <link rel="stylesheet" href="cadastro_aluno.css" />
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <script src="cadastro_aluno.js" defer></script>
 </head>
 
 <body>
@@ -25,7 +24,7 @@
     </header>
 
     <main>
-        <form class="formAluno" id="formAluno" action="#" method="post">
+        <form class="formAluno" action="#" method="post">
             <div id="leftRow">
                 <div class="inputGroup">
                     <label class="label" for="nome">Nome:</label>
@@ -47,11 +46,9 @@
                     <input class="input" type="tel" id="telefone" name="telefone" placeholder="Digite seu telefone">
                 </div>
             </div>
-            <div id="toast-sucesso" role="status" aria-live="polite"></div> 
-            <div id="toast-erro" role="alert" aria-live="assertive"></div> 
         </form>
         <div class="botao_enter">
-            <button  class="botaoEnvio" id="botaoEnvio" type="submit" form="formAluno">Cadastrar</button>
+            <button class="botao" type="submit">Cadastrar</button>
         </div>
     </main>
 

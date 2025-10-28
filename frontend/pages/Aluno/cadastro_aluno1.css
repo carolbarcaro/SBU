@@ -41,13 +41,11 @@ header {
 h1 {
     color: rgb(1, 1, 90);
     font-family: "Poppins", sans-serif;
-    font-size: 250%;
 }
 
 p {
     color: rgb(1, 1, 90);
     font-family: "Poppins", sans-serif;
-    font-size: 124%;
 }
 
 main {
@@ -110,7 +108,7 @@ main {
     padding-top: 20px;
 }
 
-.botaoEnvio{
+.botao{
     background-color: #fde071;
     border: none;
     border-radius: 6px;
@@ -123,27 +121,7 @@ main {
     transition: all 0.3s;
 }
 
-.botaoEnvio:hover{
+.botao:hover{
     transform: translateY(-2px);
     box-shadow: 0 12px 20px rgba(0,0,0,0.4);
 }
-#toast-sucesso, #toast-erro {
-  display: none;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: 10px 20px;
-  border-radius: 6px;
-  color: #fff;
-  font-weight: 600;
-  transition: opacity 0.3s ease;
-}
-
-#toast-sucesso.show,
-#toast-erro.show {
-  display: block;
-  opacity: 1;
-}
-
-#toast-sucesso { background: #28a745; }
-#toast-erro { background: #dc3545; }
