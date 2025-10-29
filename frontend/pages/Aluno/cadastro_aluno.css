@@ -33,6 +33,11 @@ header {
     justify-content: left;
 }
 
+.logo {
+  max-width: 215px;
+  height: auto;
+}
+
 #texto {
     text-align: right;
     margin-right: 15vw;
