@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const pool = require('./db');
 const alunoRoutes = require('./routes/alunoRoutes'); // 👈 esse caminho é fundamental
+const livroRoutes = require('./routes/livroRoutes'); // importando as rotas de livro, que estão no arquivo livroRoutes.js
 
 const app = express();
 app.use(cors());
@@ -23,6 +24,8 @@ app.get('/api', async (req, res) => {
 
 // rotas de alunos
 app.use('/api/alunos', alunoRoutes);
+
+app.use('/api/livros', livroRoutes); // configurando o app para usar as rotas de livro, com o endpoint /api/livros
 
 // iniciando o servidor
 const PORT = process.env.PORT || 3000;
