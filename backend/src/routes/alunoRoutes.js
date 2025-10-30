@@ -2,11 +2,8 @@ const express = require('express');
 const pool = require('../db');
 const router = express.Router();
 
-//alunoRoutes
-// Listar todos os alunos
 router.get('/', async (req, res) => {
   try {
-    console.log('caminho de aluno encontrado!');
     const [rows] = await pool.query('SELECT * FROM aluno');
     res.json(rows);
   } catch (error) {
@@ -15,28 +12,24 @@ router.get('/', async (req, res) => {
   }
 });
 
-// rota pra listar alunos
-router.get("/alunos", async (req, res) => {
-  const alunos = await prisma.aluno.findMany();
-  res.json(alunos);
-});
-
-router.post("/cadastro_aluno", async (req, res) => {
+// ✅ Cadastrar novo aluno
+router.post('/', async (req, res) => {
   try {
     const { nome, ra, email, telefone } = req.body;
 
     if (!nome || !ra || !email || !telefone) {
-      return res.status(400).json({ error: "Todos os campos são obrigatórios" });
+      return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
     }
 
-    const aluno = await prisma.aluno.create({
-      data: { nome, ra, email, telefone },
-    });
+    await pool.query(
+      'INSERT INTO aluno (nome, ra, email, telefone) VALUES (?, ?, ?, ?)',
+      [nome, ra, email, telefone]
+    );
 
-    res.status(201).json(aluno);
+    res.status(201).json({ message: 'Aluno cadastrado com sucesso!' });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Erro ao cadastrar aluno" });
+    console.error('Erro ao cadastrar aluno:', err);
+    res.status(500).json({ error: 'Erro ao cadastrar aluno' });
   }
 });
 

@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000);
   }
 
-  botaoEnvio.addEventListener("click", (event) => {
+  botaoEnvio.addEventListener("click", async (event) => {
     event.preventDefault(); // evita envio do form real
 
     // pega valores
@@ -37,14 +37,38 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // limpa os campos
-    const formAluno = document.getElementById('FormAluno');
-  // limpa todos os campos para os valores iniciais
-    form.reset();
+    try {
+      // envia dados ao backend
+      const response = await fetch("http://localhost:3000/api/alunos", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nome,
+          ra,
+          email,
+          telefone,
+        }),
+      });
 
-
-    // exibe toast de sucesso
-    showToast("success", "Cadastro realizado com sucesso!");
+      if (response.ok) {
+        showToast("success", "Cadastro realizado com sucesso!");
+        form.reset(); // limpa campos após sucesso
+      } else {
+        // ⚠️ tenta ler JSON apenas se o backend realmente mandou JSON
+        let erroMsg = "Erro ao cadastrar aluno.";
+        try {
+          const erro = await response.json();
+          erroMsg = erro.message || erro.error || erroMsg;
+        } catch (_) {
+          // ignora se a resposta não for JSON
+        }
+        showToast("error", erroMsg);
+      }
+    } catch (error) {
+      console.error("Erro no fetch:", error);
+      showToast("error", "Erro ao conectar ao servidor.");
+    }
   });
 });
-
