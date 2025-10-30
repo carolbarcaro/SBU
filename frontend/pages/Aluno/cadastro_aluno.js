@@ -54,9 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (response.ok) {
         showToast("success", "Cadastro realizado com sucesso!");
-        form.reset(); // limpa campos após sucesso
+        form.reset(); // limpa campos depois do sucesso
       } else {
-        // ⚠️ tenta ler JSON apenas se o backend realmente mandou JSON
+      
         let erroMsg = "Erro ao cadastrar aluno.";
         try {
           const erro = await response.json();
