@@ -18,15 +18,40 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // limpa os campos
-        document.getElementById('codigo').value = '';
-        document.getElementById('titulo').value = '';
-        document.getElementById('editora').value = '';
-        document.getElementById('ano').value = '';
+        fetch('http://localhost:3000/api/livros/cadastro', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ codigo, titulo, editora, ano })
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if (data.message) {
+                // mostra toast de sucesso
+                toastSucesso.textContent = data.message;
+                toastSucesso.classList.add('show');
+                setTimeout(() => toastSucesso.classList.remove('show'), 3000);
 
+                // limpa os campos
+                document.getElementById('codigo').value = '';
+                document.getElementById('titulo').value = '';
+                document.getElementById('editora').value = '';
+                document.getElementById('ano').value = '';
+                
         // mostra toast de sucesso
         toastSucesso.textContent = 'As informações foram salvas com sucesso!';
         toastSucesso.classList.add('show');
         setTimeout(() => toastSucesso.classList.remove('show'), 3000);
+            }
+        })
+        .catch(err => {
+            // trata erros de rede ou servidor
+            toastErro.textContent = 'Erro ao salvar os dados!';
+            toastErro.classList.add('show');
+            setTimeout(() => toastErro.classList.remove('show'), 3000);
+            console.error(err);
+        });
     });
 });
