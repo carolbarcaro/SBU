@@ -32,6 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    if (!/^\d{8}$/.test(ra)) {
+      showToast("error", "RA deve ter 8 dígitos numéricos.");
+      return;
+    }
+
     // limpa os campos
     const formAluno = document.getElementById('FormAluno');
   // limpa todos os campos para os valores iniciais
@@ -43,6 +48,3 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// colocar a rota
-// teste
-//121
