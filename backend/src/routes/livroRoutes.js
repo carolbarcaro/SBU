@@ -20,8 +20,10 @@ router.post('/cadastro', async (req, res) => {  //async é para fazer uma funç�
     catch (error) {
         console.error(error); // se der erro, mostra o erro no console 
         if (error.code == 'ER_DUP_ENTRY') { // verifica se o erro é de entrada duplicada (código já existe no banco)
-            return res.status (409).json ({message: "Código já cadastrado! Utilize outro código para cadastrar o livro."}); // retorna o status 409 (conflito) e uma mensagem de erro em formato json
-        }
+             return res
+                .status(409)
+                .json({ message: 'Código já cadastrado! Utilize outro código para cadastrar o livro.' }); // retorna o status 409 (conflito) e uma mensagem de erro em formato json
+             }
         res.status(500).json({message: "Erro no servidor. Tente novamente mais tarde."}); // retorna o status 500 (erro interno do servidor) e uma mensagem de erro em formato json
     }
 });
