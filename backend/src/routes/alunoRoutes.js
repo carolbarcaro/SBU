@@ -15,4 +15,29 @@ router.get('/', async (req, res) => {
   }
 });
 
+// rota pra listar alunos
+router.get("/alunos", async (req, res) => {
+  const alunos = await prisma.aluno.findMany();
+  res.json(alunos);
+});
+
+router.post("/cadastro_aluno", async (req, res) => {
+  try {
+    const { nome, ra, email, telefone } = req.body;
+
+    if (!nome || !ra || !email || !telefone) {
+      return res.status(400).json({ error: "Todos os campos são obrigatórios" });
+    }
+
+    const aluno = await prisma.aluno.create({
+      data: { nome, ra, email, telefone },
+    });
+
+    res.status(201).json(aluno);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Erro ao cadastrar aluno" });
+  }
+});
+
 module.exports = router;
