@@ -1,14 +1,14 @@
 const express = require('express');
 const cors = require('cors');
 const pool = require('./db');
-const alunoRoutes = require('./routes/alunoRoutes'); // 👈 esse caminho é fundamental
-const livroRoutes = require('./routes/livroRoutes'); // importando as rotas de livro, que estão no arquivo livroRoutes.js
+const alunoRoutes = require('./routes/alunoRoutes');
+const livroRoutes = require('./routes/livroRoutes');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// rota principal de teste
+// rota de teste
 app.get('/api', async (req, res) => {
   try {
     const [rows] = await pool.query('SELECT NOW() AS hora_atual');
@@ -22,16 +22,8 @@ app.get('/api', async (req, res) => {
   }
 });
 
-// rotas de alunos
+// rotas
 app.use('/api/alunos', alunoRoutes);
-
-app.use('/api/livros', livroRoutes); // configurando o app para usar as rotas de livro, com o endpoint /api/livros
-
-// iniciando o servidor
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Servidor rodando com sucesso na porta ${PORT}`);
-});
+app.use('/api/livros', livroRoutes);
 
 module.exports = app;
-
