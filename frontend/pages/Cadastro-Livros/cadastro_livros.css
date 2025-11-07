@@ -8,12 +8,36 @@
 
 #Header{
     background-color: rgb(1, 1, 90);
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    padding: 1%;
 }
 
 #textHeader{
     color: antiquewhite;
-    padding: 1%;
     font-family: "Poppins", sans-serif;
+}
+
+#linkDoBotao {
+    text-decoration: none;
+}
+
+#botaoVoltarPagina {
+    border: none;
+    background-color: rgba(8, 38, 138, 0.445);
+    color: antiquewhite;
+    padding: 0.2rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    transition: all 0.3s;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#botaoVoltarPagina:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.3);
 }
 
 .cabecalho{
@@ -96,28 +120,6 @@ main {
     padding: 5px;
     justify-content: left;
     font-family: "Poppins", sans-serif;
-}
-
-#linkDoBotao {
-    text-decoration: none;
-}
-
-#botaoVoltarPagina {
-    border: none;
-    background-color: #fde071;
-    color: black;
-    padding: 0.5rem;
-    font-family: "Poppins", sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    transition: all 0.3s;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-#botaoVoltarPagina:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 12px 20px rgba(83, 71, 253, 0.4);
 }
 
 .botao_enter{
