@@ -42,7 +42,7 @@ header {
 
 .login_aluno {
     background-color: rgb(1, 1, 90);
-    width: 50vw;
+    width: 40vw;
     padding: 1.5%;
     display: flex;
     justify-content: space-between;
@@ -52,7 +52,7 @@ header {
 .label {
     color: white;
     text-align: left;
-    margin-bottom: 5px;
+    margin-bottom: 50%;
     font-family: "Poppins", sans-serif;
 }
 
@@ -60,10 +60,10 @@ header {
     background-color: white;
     border: none;
     border-radius: 8px;
-    width: 18vw;
-    height: 4vh;
+    width: 250%;
+    height: 400%;
     color: gray;
-    font-size: 12px;
+    font-size: 90%;
     text-align: left;
     padding: 2%;
     justify-content: left;
@@ -85,6 +85,7 @@ header {
 .botao_login{
     background-color: #fde071;
     border: none;
+    display: flex;
     border-radius: 6px;
     cursor: pointer;
     padding: 18px 33px;
@@ -96,6 +97,6 @@ header {
 }
 
 .botaoLogin:hover{
-    transform: translateY(-2px);
+    transform: translateY(50px);
     box-shadow: 0 12px 20px rgba(0,0,0,0.4);
 }
