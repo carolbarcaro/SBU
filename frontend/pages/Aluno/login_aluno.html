@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Aluno</title>
-    <link rel="stylesheet" href="login_aluno.css">
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <script src="login_aluno.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Área do Aluno — Login</title>
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="login_aluno.css">
+</head>
 
 <body>
     <header id="topo">
@@ -16,8 +17,7 @@
     <header>
         <div id="LogoPuc">
             <a href="area_aluno.html">
-            <img  src="../../assets/Imagens/Logo_Puc.png" class="logo" alt="Logo da PUC Campinas"width="215vw"
-                height="90vh">
+            <img  src="../../assets/Imagens/Logo_Puc.png" class="logo" alt="Logo da PUC Campinas"width="220vw" height="90vh">
             </a>
         </div>
         <div id="texto">
@@ -27,18 +27,19 @@
     </header>
 
     <main>
-        <form class="login_aluno" id="login_aluno" action="#" method="post">
-            <div class="inputGroup">
-                    <label class="label" for="ra">R.A:</label>
-                    <input class="input" type="text" id="ra" name="ra" placeholder="Digite seu RA" pattern="\d{8}" title="Informe 8 dígitos" required>
-            </div>
-            <div class="botaoLogin">
-                <button  class="botao_login" id="botao_login" type="submit" form="login_aluno">Login</button> 
+        <form class="login-card" id="login_aluno" action="#" method="post">
+            <h2 class="title">Área do Aluno</h2>
+            <p class="subtitle">Digite o seu RA para entrar</p>
 
-            </div>
+            <label for="ra" class="label">R.A</label>
+            <input type="text" id="ra" name="ra" placeholder="Digite seu RA" pattern="\d{8}" title="Informe 8 dígitos" required>
+        </form>
 
-        </form> 
+        <div class="botao-wrapper">
+            <button type="submit" class="btn-login" form="login_aluno">Login</button>
+        </div>
+        
     </main>
+      <script src="login_aluno.js" defer></script>
 </body>
-
 </html>

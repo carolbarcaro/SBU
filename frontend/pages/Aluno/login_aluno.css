@@ -2,7 +2,8 @@
 
 *{
     margin: 0;
-    padding: 0;  
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -40,63 +41,97 @@ header {
     justify-content: left;
 }
 
-.login_aluno {
-    background-color: rgb(1, 1, 90);
-    width: 40vw;
-    padding: 1.5%;
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid #fde071;
-    border-radius: 8px;
-}
-.label {
-    color: white;
-    text-align: left;
-    margin-bottom: 50%;
-    font-family: "Poppins", sans-serif;
+#texto {
+    text-align: right;
+    margin-right: 15vw;
 }
 
-.input {
-    background-color: white;
-    border: none;
-    border-radius: 8px;
-    width: 250%;
-    height: 400%;
-    color: gray;
-    font-size: 90%;
-    text-align: left;
-    padding: 2%;
-    justify-content: left;
+h1 {
+    color: rgb(1, 1, 90);
     font-family: "Poppins", sans-serif;
-}
-.inputGroup {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 4%;
-    align-items: flex-start;
-    font-family: "Poppins", sans-serif;
-}
-.botaoLogin{
-    text-align: center;
-    padding: 2%;
-    padding-top: 20px;
+    font-size: 45px;
 }
 
-.botao_login{
+p {
+    color: rgb(1, 1, 90);
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    margin-right: -5%;
+}
+
+.login-card{
+    background:#07075b;
+    color:#fff;
+    width:100%;
+    max-width:800px;          /* controla a largura máxima */
+    margin:24px auto;         /* centraliza na página */
+    padding:22px 20px;        /* respiro interno */
+    border:1px solid #fde071; /* contorno amarelinho */
+    border-radius:12px;
+    box-shadow:0 10px 28px rgba(0,0,0,.12);
+}
+
+.title{
+  margin:0 0 4px;
+  text-align:center;
+  font-size: 40px;
+  font-weight:700;
+}
+
+.subtitle{
+  margin:0 0 18px;
+  text-align:center;
+  color:#cbd5ff;            /* tom mais claro pro subtítulo */
+  font-size:25px;
+}
+
+.label{
+  display:block;
+  margin:8px 0 6px;
+  font-weight:600;
+  font-size: 30px;
+}
+
+#ra{
+  width:100%;
+  height:44px;              /* altura fixa agradável */
+  border:1px solid #cbd5e1; /* borda clara */
+  border-radius:10px;
+  background:#fff;
+  color:#111;
+  font-size:25px;
+  padding:0 12px;
+}
+
+#ra:focus {
+  outline:none;
+  border-color:#3b82f6;
+  box-shadow:0 0 0 3px rgba(59,130,246,.25);
+}
+
+.botao-wrapper {
+    width: 100%;
+    max-width: 800px;   /* igual ao card */
+    margin: 0 auto;
+}
+
+.btn-login {
     background-color: #fde071;
     border: none;
-    display: flex;
     border-radius: 6px;
     cursor: pointer;
-    padding: 18px 33px;
-    font-size: 16px;
+    padding: 18px;
+    font-size: 150%;
     color: black;
     font-weight: bold;
     font-family: "Poppins", sans-serif;
     transition: all 0.3s;
+    display: block;     /* torna o botão 100% */
+    width: 100%;
+    margin-top: -4%;        /* ocupa toda a largura */
 }
 
-.botaoLogin:hover{
-    transform: translateY(50px);
+.btn-login:hover{
+    transform: translateY(5px);
     box-shadow: 0 12px 20px rgba(0,0,0,0.4);
 }
