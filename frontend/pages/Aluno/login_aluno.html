@@ -32,7 +32,10 @@
             <p class="subtitle">Digite o seu RA para entrar</p>
 
             <label for="ra" class="label">R.A</label>
-            <input type="text" id="ra" name="ra" placeholder="Digite seu RA" pattern="\d{8}" title="Informe 8 dígitos" required>
+            <input type="text" id="ra" name="ra" placeholder="Digite seu RA" required>
+            
+            <div id="toast-sucesso" role="status" aria-live="polite"></div> 
+            <div id="toast-erro" role="alert" aria-live="assertive"></div> 
         </form>
 
         <div class="botao-wrapper">
