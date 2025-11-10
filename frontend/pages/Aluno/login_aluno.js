@@ -34,9 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // se chegou aqui, está válido
     showToast("success", "RA válido! Efetuando login...");
-    // aqui você pode chamar sua API/fetch ou dar submit no form:
-    // form.submit();
-    // ou:
-    // await fetch('/sua-rota', { method:'POST', body: new FormData(form) })
+    
   });
 });
