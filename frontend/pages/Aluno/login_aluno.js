@@ -37,3 +37,29 @@ document.addEventListener("DOMContentLoaded", () => {
     
   });
 });
+
+// cadastrar novo aluno
+router.get('/', async (req, res) => {
+try {
+const { ra } = req.body;
+
+// insere aluno
+const sql = 'SELECT ra FROM aluno';
+await pool.query(sql, [ra]);
+
+res.status(201).json({ message: 'Login...' });
+
+
+} catch (err) {
+// tratamento específico para RA duplicado
+if (err.code === 'ER_DUP_ENTRY') {
+return res.status(400).json({ error: 'Esse RA já está cadastrado!' });
+}
+
+console.error('Erro ao cadastrar aluno:', err);
+res.status(500).json({ error: 'Erro ao cadastrar aluno.' });
+
+}
+});
+
+module.exports = router;
