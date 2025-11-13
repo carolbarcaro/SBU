@@ -16,8 +16,9 @@ body {
 
 #texttopo{
     color: antiquewhite;
-    padding: 1%;
+    padding: 0.3%;
     font-family: "Poppins", sans-serif;
+    font-size: 10px;
 }
 
 header {
@@ -40,7 +41,7 @@ header {
 
 #texto {
     text-align: right;
-    margin-right: 15vw;
+    margin-right: 5vw;
 }
 
 h1 {
