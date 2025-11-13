@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("login_aluno");
-  const botaoEnvio = document.querySelector(".btn-login"); // class, não id
   const toastSucesso = document.getElementById("toast-sucesso");
   const toastErro = document.getElementById("toast-erro");
 
@@ -9,57 +8,71 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!el) return;
 
     el.textContent = message;
-    el.classList.add("show");
+    el.classList.remove("show-error", "show-success"); // limpa classes antigas
 
-    clearTimeout(el._hideTimer);
-    el._hideTimer = setTimeout(() => {
-      el.classList.remove("show");
+    if (type === "success") {
+      el.classList.add("show-success");
+    } else {
+      el.classList.add("show-error");
+    }
+
+    // some depois de 3s
+    setTimeout(() => {
+      el.classList.remove("show-error", "show-success");
     }, 3000);
   }
 
-  botaoEnvio.addEventListener("click", async (event) => {
-    event.preventDefault(); // evita envio real do form
+  // usamos o SUBMIT do formulário (o botão já tem form="login_aluno")
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault(); // impede reload da página
 
-    const ra = document.getElementById("ra").value.trim();
+    const raInput = document.getElementById("ra");
+    const ra = raInput.value.trim();
 
+    // validações
     if (!ra) {
-      showToast("error", "Por favor, preencha o campo do RA.");
+      showToast("error", "Por favor, informe o RA.");
+      raInput.focus();
       return;
     }
 
     if (!/^\d{8}$/.test(ra)) {
       showToast("error", "RA deve ter 8 dígitos numéricos.");
+      raInput.focus();
       return;
     }
 
-    // se chegou aqui, está válido
-    showToast("success", "RA válido! Efetuando login...");
-    
+    try {
+      const response = await fetch("http://localhost:3000/api/alunos/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ra }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+      
+        showToast("success", data.message || "Login realizado com sucesso!");
+      
+        setTimeout(() => {
+          window.location.href = "../Area%20do%20Aluno/classificacao.html";
+        }, 1000);
+      }
+       else {
+        let erroMsg = "Erro ao fazer login.";
+        try {
+          const erro = await response.json();
+          erroMsg = erro.message || erro.error || erroMsg;
+        } catch (_) {
+          // se não vier JSON, mantém mensagem padrão
+        }
+        showToast("error", erroMsg);
+      }
+    } catch (error) {
+      console.error("Erro no fetch:", error);
+      showToast("error", "Erro ao conectar ao servidor.");
+    }
   });
 });
-
-// cadastrar novo aluno
-router.get('/', async (req, res) => {
-try {
-const { ra } = req.body;
-
-// insere aluno
-const sql = 'SELECT ra FROM aluno';
-await pool.query(sql, [ra]);
-
-res.status(201).json({ message: 'Login...' });
-
-
-} catch (err) {
-// tratamento específico para RA duplicado
-if (err.code === 'ER_DUP_ENTRY') {
-return res.status(400).json({ error: 'Esse RA já está cadastrado!' });
-}
-
-console.error('Erro ao cadastrar aluno:', err);
-res.status(500).json({ error: 'Erro ao cadastrar aluno.' });
-
-}
-});
-
-module.exports = router;
