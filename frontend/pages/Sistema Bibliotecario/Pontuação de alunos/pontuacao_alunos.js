@@ -24,3 +24,11 @@ function filtrarTabela() {
 
 searchInput.addEventListener("input", filtrarTabela);
 filterLeitor.addEventListener("change", filtrarTabela);
+
+// PEGAR O BOTÃO
+const botaoPesquisar = document.getElementById("botao");
+
+// CHAMAR O MÉTODO NO CLIQUE
+botaoPesquisar.addEventListener("click", () => {
+  console.log(getAlunoDoEmprestimo());
+});
