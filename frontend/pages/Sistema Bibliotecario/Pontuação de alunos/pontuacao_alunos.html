@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pontuação de Alunos</title>
+    <link rel="stylesheet" href="pontuacao_alunos.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header id="Header">
+      <p id="textHeader">o o o</p>
+    </header>
+    <main>
+      <div class="cabecalho">
+        <div id="LogoPuc">
+          <img
+            src="../../../assets/Imagens/Logo_Puc.png"
+            class="logo"
+            alt="Logo da PUC Campinas"
+            width="215vw"
+            height="90vh"
+          />
+        </div>
+
+        <div id="TituloPagina">
+          <h1 class="Titulo-da-pagina">Pontuação de alunos</h1>
+        </div>
+      </div>
+
+      <div class="filtros-container">
+    <input type="text" id="searchInput" placeholder="Pesquisar por nome ou RA...">
+
+    <select id="filterLeitor">
+        <option value="">Todos os tipos</option>
+        <option value="Ouro">Leitor Ouro</option>
+        <option value="Prata">Leitor Prata</option>
+        <option value="Bronze">Leitor Bronze</option>
+    </select>
+
+     <div class="botao_enter">
+            <button class="botao" id="botao" type="submit">Pesquisar</button>
+        </div>
+</div>
+
+
+      <table class="tabela-alunos">
+        <thead>
+          <tr>
+            <th>Aluno</th>
+            <th>Tipo de Leitor</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>
+              <strong>João Silva</strong><br />
+              <span class="ra">123456</span>
+            </td>
+            <td>Leitor Ouro</td>
+          </tr>
+
+          <tr>
+            <td>
+              <strong>Maria Oliveira</strong><br />
+              <span class="ra">987654</span>
+            </td>
+            <td>Leitor Prata</td>
+          </tr>
+
+          <tr>
+            <td>
+              <strong>Carlos Santos</strong><br />
+              <span class="ra">654321</span>
+            </td>
+            <td>Leitor Bronze</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <script>
+      src = "pontuacao_alunos.js";
+    </script>
+  </body>
+</html>
