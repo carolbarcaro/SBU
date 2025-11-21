@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="tela_devolucao.css">
     <title>Devolução de livros</title>
 </head>
@@ -12,6 +13,7 @@
 
     <header id="Header">
         <p id="textHeader">o o o</p>
+        <a href="tela_inicial.html" id="linkDoBotao"><button type="button" id="botaoVoltarPagina"><i class="fa-solid fa-arrow-left"></i> PÁGINA ANTERIOR</button></a>
     </header>
 
     <main>
@@ -23,34 +25,31 @@
             </div>
 
             <div id="TituloPagina">
-                <h1 class="Titulo-da-pagina">Área de devolução de livros</h1>
+            <h1>Área de devolução de livros</h1>
+            <p>Preencha os dados abaixo para devolver o livro à biblioteca!</p>
             </div>
         </div>
 
         <br><br>
 
-        <div class="caixas-de-texto">
-            <div id="Campo">
-                <div id="TituloCaixa">
-                    <label for="RA">Seu RA:</label>
+        <form class="formDevolucao" action="#" method="post">
+            <div id="leftRow">
+                <div class="inputGroup">
+                    <label class="label" for="ra">Seu RA:</label>
+                    <input class="input" type="text" id="ra" placeholder="Digite seu RA">
                 </div>
 
-                <div id="Textbox">
-                    <input type="number" id="Textbox" name="RA" placeholder="Digite seu RA" />
+            </div>
+            <div id="rightRow">
+                <div class="inputGroup">
+                    <label class="label" for="codigo">Código do livro:</label>
+                    <input class="input" type="text" id="codigo" placeholder="Digite o código do livro">
                 </div>
             </div>
+        </form>
 
-            <div id="Campo">
-                <div id="TituloCaixa">
-                    <label for="Cod_livro">Código do livro:</label>
-                </div>
-                <div id="Textbox">
-                    <input type="text" id="Textbox" name="Cod_livro" placeholder="Digite o código do livro" />
-                </div>
-            </div>
-        </div>
         <div class="botao_enter">
-            <button class="botao" type="button">Devolver</button>
+            <button class="botao" id="botao" type="submit">Devolver</button>
         </div>
 
     </main>
