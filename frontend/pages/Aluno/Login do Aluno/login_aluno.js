@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showToast("success", data.message || "Login realizado com sucesso!");
       
         setTimeout(() => {
-          window.location.href = "../Area%20do%20Aluno/classificacao.html";
+          window.location.href = "../Login%20do%20Aluno/classificacao.html";
         }, 1000);
       }
        else {
