@@ -3,9 +3,15 @@ const cors = require('cors');
 const pool = require('./db');
 const alunoRoutes = require('./routes/alunoRoutes');
 const livroRoutes = require('./routes/livroRoutes');
+const retiradaRoutes = require('./routes/retiradaRoutes');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type"]
+}));
+
 app.use(express.json());
 
 // rota de teste
@@ -25,5 +31,6 @@ app.get('/api', async (req, res) => {
 // rotas
 app.use('/api/alunos', alunoRoutes);
 app.use('/api/livros', livroRoutes);
+app.use('/api/retirada', retiradaRoutes);
 
 module.exports = app;

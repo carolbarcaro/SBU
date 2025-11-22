@@ -13,46 +13,56 @@
 
     <header id="Header">
         <p id="textHeader">o o o</p>
-        <a href="tela_inicial.html" id="linkDoBotao"><button type="button" id="botaoVoltarPagina"><i class="fa-solid fa-arrow-left"></i> PÁGINA ANTERIOR</button></a>
+        <a href="tela_inicial.html" id="linkDoBotao">
+            <button type="button" id="botaoVoltarPagina">
+                <i class="fa-solid fa-arrow-left"></i> PÁGINA ANTERIOR
+            </button>
+        </a>
     </header>
 
     <main>
 
         <div class="cabecalho">
             <div id="LogoPuc">
-                <img  src="../../assets/Imagens/Logo_Puc.png" class="logo" alt="Logo da PUC Campinas" width="215vw"
-                    height="90vh">
+                <img src="../../assets/Imagens/Logo_Puc.png" class="logo" alt="Logo da PUC Campinas" width="215vw" height="90vh">
             </div>
 
             <div id="TituloPagina">
-            <h1>Área de retirada de livros</h1>
-            <p>Preencha os dados abaixo para retirar um livro da biblioteca!</p>
+                <h1>Área de retirada de livros</h1>
+                <p>Preencha os dados abaixo para retirar um livro da biblioteca!</p>
             </div>
         </div>
 
         <br><br>
 
-        <form class="formRetirada" action="#" method="post">
+        <form id="formRetirada" class="formRetirada" action="#" method="post">
             <div id="leftRow">
                 <div class="inputGroup">
                     <label class="label" for="ra">Seu RA:</label>
-                    <input class="input" type="text" id="ra" placeholder="Digite seu RA">
+                    <input class="input" type="text" id="ra" name="ra" placeholder="Digite seu RA">
                 </div>
-
             </div>
+
             <div id="rightRow">
                 <div class="inputGroup">
                     <label class="label" for="codigo">Código do livro:</label>
-                    <input class="input" type="text" id="codigo" placeholder="Digite o código do livro">
+                    <input class="input" type="text" id="codigo" name="codigo" placeholder="Digite o código do livro">
                 </div>
             </div>
+
         </form>
 
         <div class="botao_enter">
-            <button class="botao" id="botao" type="submit">Retirar</button>
+            <button class="botao" id="botao" type="submit" form="formRetirada">Retirar</button>
         </div>
 
+        <!-- TOASTS -->
+        <div id="toast-sucesso"></div>
+        <div id="toast-erro"></div>
+
     </main>
+
+    <script src="tela_retirada.js"></script>
 </body>
 
 </html>
