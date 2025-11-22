@@ -32,7 +32,7 @@
 
         <br><br>
 
-        <form class="formDevolucao" action="#" method="post">
+        <form id="formDevolucao" class="formDevolucao" action="#" method="post">
             <div id="leftRow">
                 <div class="inputGroup">
                     <label class="label" for="ra">Seu RA:</label>
@@ -49,10 +49,18 @@
         </form>
 
         <div class="botao_enter">
-            <button class="botao" id="botao" type="submit">Devolver</button>
+            <button class="botao" id="botao" type="submit" form="formDevolucao">Devolver</button>
         </div>
 
+        <!-- TOASTS -->
+        <div id="toast-sucesso"></div>
+        <div id="toast-erro"></div>
+
+
     </main>
+
+    <script src="tela_devolucao.js"></script>
+
 </body>
 
 </html>

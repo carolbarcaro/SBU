@@ -4,6 +4,7 @@ const pool = require('./db');
 const alunoRoutes = require('./routes/alunoRoutes');
 const livroRoutes = require('./routes/livroRoutes');
 const retiradaRoutes = require('./routes/retiradaRoutes');
+const devolucaoRoutes = require('./routes/devolucaoRoutes');
 
 const app = express();
 app.use(cors({
@@ -32,5 +33,6 @@ app.get('/api', async (req, res) => {
 app.use('/api/alunos', alunoRoutes);
 app.use('/api/livros', livroRoutes);
 app.use('/api/retirada', retiradaRoutes);
+app.use('/api/devolucao', devolucaoRoutes);
 
 module.exports = app;

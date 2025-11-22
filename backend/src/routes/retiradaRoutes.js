@@ -39,7 +39,7 @@ router.post('/retiradaLivro', async (req, res) => {
             [livro.id_livro, ra]
         );
 
-        // atualizar estado
+        // atualizar o estado
         await pool.query(
             "UPDATE livro SET situacao = 'EMPRESTADO' WHERE id_livro = ?",
             [livro.id_livro]
