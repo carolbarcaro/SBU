@@ -68,4 +68,81 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// GET - Classificação do aluno (últimos 6 meses)
+router.get('/classificacao/:ra', async (req, res) => {
+  const { ra } = req.params;
+
+  try {
+    const sql = `
+      SELECT COUNT(*) AS total
+      FROM devolucao
+      WHERE ra_aluno = ?
+      AND data_devolucao >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH)
+    `;
+
+    const [rows] = await pool.query(sql, [ra]);
+    const total = rows[0].total || 0;
+
+    let nivel;
+
+    if (total <= 5) nivel = "Leitor Iniciante";
+    else if (total <= 10) nivel = "Leitor Regular";
+    else if (total <= 20) nivel = "Leitor Ativo";
+    else nivel = "Leitor Extremo";
+
+    res.json({ total, nivel });
+
+  } catch (error) {
+    console.error("Erro ao calcular classificação:", error);
+    res.status(500).json({ error: "Erro ao calcular classificação." });
+  }
+});
+
+// GET - Pontuação do aluno (últimos 6 meses)
+router.get('/pontuacao/:ra', async (req, res) => {
+  const { ra } = req.params;
+
+  try {
+    const sql = `
+      SELECT COUNT(*) * 10 AS total
+      FROM devolucao
+      WHERE ra_aluno = ?
+      AND data_devolucao >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH)
+    `;
+
+    const [rows] = await pool.query(sql, [ra]);
+    res.json({ total: rows[0].total || 0 });
+
+  } catch (error) {
+    console.error("Erro ao buscar pontuação:", error);
+    res.status(500).json({ error: "Erro ao buscar pontuação." });
+  }
+});
+
+// GET - Livros lidos (últimos 6 meses)
+router.get('/livros-lidos/:ra', async (req, res) => {
+  const { ra } = req.params;
+
+  try {
+    const sql = `
+      SELECT l.titulo, d.data_devolucao
+      FROM devolucao d
+      JOIN livro l ON l.id_livro = d.id_livro
+      WHERE d.ra_aluno = ?
+      AND d.data_devolucao >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH)
+      ORDER BY d.data_devolucao DESC
+    `;
+
+    const [rows] = await pool.query(sql, [ra]);
+    res.json(rows);
+
+  } catch (error) {
+    console.error("Erro ao buscar livros lidos:", error);
+    res.status(500).json({ error: "Erro ao buscar livros lidos." });
+  }
+});
+
+
+
+
 module.exports = router;
