@@ -133,6 +133,25 @@ main {
     transform: translateY(-2px);
     box-shadow: 0 12px 20px rgba(0,0,0,0.4);
 }
+
+.caixa{
+    background-color: #fde071;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 18px 40px;
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    transition: all 0.3s;
+}
+
+.caixa:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.4);
+}
+
 #toast-sucesso, #toast-erro {
   display: none;
   position: fixed;

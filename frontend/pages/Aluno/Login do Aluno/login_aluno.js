@@ -52,14 +52,18 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       if (response.ok) {
-        const data = await response.json();
-      
-        showToast("success", data.message || "Login realizado com sucesso!");
-      
-        setTimeout(() => {
-          window.location.href = "../Login%20do%20Aluno/classificacao.html";
-        }, 1000);
-      }
+      const data = await response.json();
+
+      localStorage.setItem("ra_logado", ra);
+      localStorage.setItem("nome_logado", data.aluno.nome);
+
+      showToast("success", data.message || "Login realizado com sucesso!");
+
+      setTimeout(() => {
+        window.location.href = "../Login%20do%20Aluno/classificacao.html";
+      }, 1000);
+}
+
        else {
         let erroMsg = "Erro ao fazer login.";
         try {
