@@ -148,21 +148,6 @@ router.get('/livros-lidos/:ra', async (req, res) => {
 */
 
 // NOVA CLASSIFICAÇÃO DO ALUNO - ULTIMO 6 MESES
-router.get('/classificacao/:ra', async (req, res) => {
-  const { ra } = req.params;
 
-  try {
-    const sql = `
-      SELECT COUNT(*) AS total
-      FROM devolucao
-      WHERE ra = ?
-      AND data_devolucao >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH)
-    `;
-  }
-
-  const [rows] = await pool.query(sql, [ra]);
-    const total = rows[0].total || 0;
-
-});
- // faltar terminar
+ // faltar terminar :) <3
 module.exports = router;
