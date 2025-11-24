@@ -4,10 +4,10 @@ const pool = require('../db'); // pool de conexões com o MySQL (mysql2/promise)
 
 // rota para exibir o relatório de livros
 // /relatorio é o endpoint que o front vai chamar para buscar todos os livros cadastrados
-router.get('/relatorio', async (req, res) => { 
+router.get('/relatorio1', async (req, res) => { 
     try {
         const [livros] = await pool.query(
-            'SELECT id, titulo, codigo, ano, editora FROM livro'
+            'SELECT id_lirvo, titulo, codigo, ano, editora, situacao FROM livro'
         ); 
         // SELECT busca todos os livros da tabela livro
         // o pool.query retorna um array onde o primeiro item é o resultado da query
