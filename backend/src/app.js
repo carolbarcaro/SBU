@@ -35,4 +35,5 @@ app.use('/api/livros', livroRoutes);
 app.use('/api/retirada', retiradaRoutes);
 app.use('/api/devolucao', devolucaoRoutes);
 
+
 module.exports = app;

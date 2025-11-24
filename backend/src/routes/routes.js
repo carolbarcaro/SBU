@@ -5,7 +5,7 @@
  * 
  * aluno/login
  * totem/devolucao
- * bibkiotecario
+ * bibliotecario
  * 
  * create -> post
  * read -> get
