@@ -23,8 +23,8 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ error: 'Todos os campos são obrigatórios.' });
     }
 
-    const sql = 'INSERT INTO aluno (nome, ra, email, telefone) VALUES (?, ?, ?, ?)';
-    await pool.query(sql, [nome, ra, email, telefone]);
+    const sql = 'INSERT INTO aluno (ra, nome, email, telefone) VALUES (?, ?, ?, ?)';
+    await pool.query(sql, [ra, nome, email, telefone]);
 
     res.status(201).json({ message: 'Aluno cadastrado com sucesso!' });
 
@@ -69,6 +69,9 @@ router.post('/login', async (req, res) => {
 });
 
 // GET - Classificação do aluno (últimos 6 meses)
+
+/* NÃO UTILIZAREMOS MAIS ESSE METODO
+
 router.get('/classificacao/:ra', async (req, res) => {
   const { ra } = req.params;
 
@@ -142,7 +145,24 @@ router.get('/livros-lidos/:ra', async (req, res) => {
   }
 });
 
+*/
 
+// NOVA CLASSIFICAÇÃO DO ALUNO - ULTIMO 6 MESES
+router.get('/classificacao/:ra', async (req, res) => {
+  const { ra } = req.params;
 
+  try {
+    const sql = `
+      SELECT COUNT(*) AS total
+      FROM devolucao
+      WHERE ra = ?
+      AND data_devolucao >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH)
+    `;
+  }
 
+  const [rows] = await pool.query(sql, [ra]);
+    const total = rows[0].total || 0;
+
+});
+ // faltar terminar
 module.exports = router;
