@@ -34,5 +34,6 @@ app.use('/api/alunos', alunoRoutes);
 app.use('/api/livros', livroRoutes);
 app.use('/api/retirada', retiradaRoutes);
 app.use('/api/devolucao', devolucaoRoutes);
+app.use('/api/listagem', listagemRoutes);
 
 module.exports = app;
