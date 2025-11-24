@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Classificação - Aluno</title>
+  <title>Empréstimo de Livros</title>
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="classificacao.css">
+  <!-- css -->
+  <link rel="stylesheet" href="emprestimo_livros.css">
 </head>
 
 <body>
+
   <header id="Header">
     <p id="textHeader">o o o</p>
   </header>
@@ -24,24 +26,22 @@
     </div>
 
     <div id="TituloPagina">
-      <h1>Veja a sua classificação!</h1>
+      <h1>Escolha um livro para emprestar</h1>
     </div>
-
-    <!--A partir desse ponto, toda a parte escrita precisa ser no Js, pois o html é estático... -->
 
     <p id="boasVindas" class="boasvindas"></p>
   </header>
 
   <section class="filtros-container">
-    <input id="searchInput" type="text" placeholder="Pesquisar por livro:" />
+    <input id="searchInput" type="text" placeholder="Pesquisar por livro..." />
     <button id="btnPesquisar" class="botao">Pesquisar</button>
   </section>
 
   <main id="conteudo">
-
-    <!-- Fim -->
+    <!-- js vai inserir os cards -->
   </main>
 
-  <script src="classificacao.js" defer></script>
+  <!-- js -->
+  <script src="emprestimo_livro.js" defer></script>
 </body>
 </html>
