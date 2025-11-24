@@ -7,32 +7,64 @@
 
 #Header{
     background-color: rgb(1, 1, 90);
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    padding: 1%;
 }
 
 #textHeader{
     color: antiquewhite;
-    padding: 1%;
     font-family: "Poppins", sans-serif;
+}
+
+#linkDoBotao {
+    text-decoration: none;
+}
+
+#botaoVoltarPagina {
+    border: none;
+    background-color: rgba(8, 38, 138, 0.445);
+    color: antiquewhite;
+    padding: 0.2rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    transition: all 0.3s;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#botaoVoltarPagina:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.3);
 }
 
 .cabecalho{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#TituloPagina { 
-    padding: 1%;
-    display: flex;            
-    justify-content: center;
-    font-family: "Poppins", sans-serif;
+#TituloPagina {
+    text-align: right;
+    margin-right: 15vw;
+}
+
+h1 {
     color: rgb(1, 1, 90);
-    font-size: x-large;
+    font-family: "Poppins", sans-serif;
 }
 
-.logo {
+p {
+    color: rgb(1, 1, 90);
+    font-family: "Poppins", sans-serif;
+}
+
+#LogoPuc{
+    padding: 4%;
     display: flex;
     justify-content: left;
-    padding: 4%;
 }
 
 .CaixaTotalLivros{
@@ -63,4 +95,31 @@
 .TituloCTNL{
     font-size: large;
     font-weight: bold;
+}
+
+.espacoTabela {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    font-family: "Poppins", sans-serif;
+    width: 75%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+td {
+    border: 1px solid #000000;
+    padding: 8px;
+}
+        
+th {
+    border: 1px solid #000000;
+    background-color: #fde171b0;
+    border: 2px solid #fde071;
+    padding: 8px;
+    color: rgb(1, 1, 90);
 }
