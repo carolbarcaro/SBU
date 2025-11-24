@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Área do Aluno — Login</title>
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="login_aluno.css">
+</head>
+
+<body>
+    <header id="topo">
+        <p id="texttopo">o o o</p>
+    </header>
+
+    <header>
+        <div id="LogoPuc">
+            <a href="../Area%20do%20Aluno/area_aluno.html">
+            <img  src="../../../assets/Imagens/Logo_Puc.png" class="logo" alt="Logo da PUC Campinas"width="250vw" height="90vh">
+            </a>
+        </div>
+        <div id="texto">
+            <h1>Faça o seu login!</h1>
+            <p>Bem-vindo a área do aluno</p>
+        </div>
+    </header>
+
+    <main>
+        <form class="login-card" id="login_aluno" action="#" method="post">
+            <h2 class="title">Área do Aluno</h2>
+            <p class="subtitle">Digite o seu RA para entrar</p>
+
+            <label for="ra" class="label">R.A</label>
+            <input type="text" id="ra" name="ra" placeholder="Digite seu RA" required>
+        </form>
+
+        <div id="toast-sucesso" role="status" aria-live="polite"></div> 
+        <div id="toast-erro" role="alert" aria-live="assertive"></div> 
+
+        <div class="botao-wrapper">
+            <button type="submit" class="btn-login" form="login_aluno">Login</button>
+        </div>
+        
+    </main>
+      <script src="login_aluno.js" defer></script>
+</body>
+</html>

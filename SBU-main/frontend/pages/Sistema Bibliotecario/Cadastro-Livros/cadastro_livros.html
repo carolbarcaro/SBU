@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cadastro_livros.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Cadastro de livros</title>
+</head>
+
+<body>
+
+    <header id="Header">
+        <p id="textHeader">o o o</p>
+
+        <!-- Botão de voltar página  -->
+        <a href="../Area Bibliotecario/area_bibliotecario.html" id="linkDoBotao"><button type="button" id="botaoVoltarPagina"><i class="fa-solid fa-arrow-left"></i> PÁGINA ANTERIOR</button></a>
+    </header>
+
+    <div class="cabecalho">
+        <div id="LogoPuc">
+            <a href="../Sistema Bibliotecario/area_bibliotecario.html">
+            <img src="../../../assets/Imagens/Logo_Puc.png" class="logo" alt="Logo da PUC Campinas" width="215vw"
+                height="90vh">
+            </a>
+        </div>
+        <div id="texto">
+            <h1>Área para cadastro de livros</h1>
+            <p>Preencha os dados abaixo para adicionar um novo título ao sistema!</p>
+        </div>
+    </div>
+
+    <main>
+
+        <form class="formLivro" action="#" method="post">
+            <div id="leftRow">
+                <div class="inputGroup">
+                    <label class="label" for="codigo">Código:</label>
+                    <input class="input" type="text" id="codigo" placeholder="Código do livro">
+                </div>
+
+                <div class="inputGroup">
+                    <label class="label" for="titulo">Título:</label>
+                    <input class="input" type="text" id="titulo" placeholder="Título do livro">
+                </div>
+            </div>
+            <div id="rightRow">
+                <div class="inputGroup">
+                    <label class="label" for="editora">Editora:</label>
+                    <input class="input" type="text" id="editora" placeholder="Nome da editora">
+                </div>
+                <div class="inputGroup">
+                    <label class="label" for="ano">Ano:</label>
+                    <input class="input" type="text" id="ano" placeholder="Ano de lançamento">
+                </div>
+            </div>
+
+        </form>
+        <div class="botao_enter">
+            <button class="botao" id="botao" type="submit">Cadastrar</button>
+        </div>
+
+    </main>
+
+    <div id="toast-sucesso"></div>
+    <div id="toast-erro"></div>
+    <script src="cadastro_livros.js"></script>
+</body>
+
+</html>

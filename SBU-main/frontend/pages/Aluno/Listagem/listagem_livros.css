@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    background-color: #f5f5f5;
+}
+
+#topo {
+    background-color: rgb(1, 1, 90);
+}
+
+#texttopo {
+    color: antiquewhite;
+    padding: 0.3%;
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+#LogoPuc {
+    padding: 0 4%;
+    display: flex;
+    justify-content: left;
+}
+
+.logo {
+    max-width: 215px;
+    height: auto;
+}
+
+#texto {
+    text-align: right;
+    margin-right: 5vw;
+}
+
+h1 {
+    color: rgb(1, 1, 90);
+    font-family: "Poppins", sans-serif;
+    font-size: 250%;
+}
+
+p {
+    color: rgb(1, 1, 90);
+    font-family: "Poppins", sans-serif;
+    font-size: 124%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 40px;
+    padding: 0 20px;
+}
+
+.filtros-container {
+    background-color: rgb(1, 1, 90);
+    width: 60vw;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #fde071;
+    border-radius: 8px;
+    gap: 15px;
+}
+
+.input-pesquisa {
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+    width: 70%;
+    height: 45px;
+    color: #333;
+    font-size: 14px;
+    text-align: left;
+    padding: 0 15px;
+    font-family: "Poppins", sans-serif;
+    flex: 1;
+}
+
+.input-pesquisa:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(253, 224, 113, 0.8);
+}
+
+.botaoPesquisa {
+    background-color: #fde071;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 12px 25px;
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.botaoPesquisa:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.4);
+}
+
+.conteudo-livros {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    width: 80vw;
+    margin-bottom: 40px;
+}
+
+.card-livro {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    overflow: hidden;
+    border-left: 5px solid #3498db;
+}
+
+.card-livro:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.card-livro.disponivel {
+    border-left-color: #27ae60;
+}
+
+.card-livro.indisponivel {
+    border-left-color: #e74c3c;
+}
+
+.card-header {
+    background: rgb(1, 1, 90);
+    color: white;
+    padding: 15px;
+    font-weight: 600;
+    font-size: 1.1em;
+    text-align: left;
+}
+
+.card-body {
+    padding: 20px;
+    text-align: left;
+}
+
+.info-livro {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.info-livro:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.label {
+    font-weight: 600;
+    color: rgb(1, 1, 90);
+    font-size: 14px;
+    min-width: 80px;
+}
+
+.valor {
+    color: #333;
+    font-size: 14px;
+    text-align: right;
+    flex: 1;
+    margin-left: 10px;
+}
+
+.status {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.status.disponivel {
+    background: #d5f4e6;
+    color: #27ae60;
+    border: 1px solid #27ae60;
+}
+
+.status.indisponivel {
+    background: #fdeaea;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+}
+
+.loading, .vazio {
+    text-align: center;
+    color: rgb(1, 1, 90);
+    font-size: 1.2em;
+    margin: 50px 0;
+    grid-column: 1 / -1;
+    font-family: "Poppins", sans-serif;
+}
+
+.vazio {
+    color: #666;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    #LogoPuc {
+        padding: 0;
+        justify-content: center;
+    }
+
+    #texto {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .filtros-container {
+        width: 90vw;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .input-pesquisa {
+        width: 100%;
+    }
+
+    .conteudo-livros {
+        width: 95vw;
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 200%;
+    }
+
+    p {
+        font-size: 110%;
+    }
+}
+
+@media (max-width: 480px) {
+    .filtros-container {
+        width: 95vw;
+        padding: 15px;
+    }
+
+    .conteudo-livros {
+        gap: 15px;
+    }
+
+    .card-livro {
+        margin: 0 10px;
+    }
+}
