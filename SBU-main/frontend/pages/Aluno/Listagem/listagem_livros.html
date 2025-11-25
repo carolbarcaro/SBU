@@ -1,47 +1,37 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Empréstimo de Livros</title>
-
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- css -->
-  <link rel="stylesheet" href="emprestimo_livros.css">
+    <meta charset="UTF-8">
+    <title>Listagem de Livros - PUC Campinas</title>
+    <link rel="stylesheet" href="listagem_livros.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <header id="topo">
+        <p id="texttopo">o o o</p>
+    </header>
 
-  <header id="Header">
-    <p id="textHeader">o o o</p>
-  </header>
+    <header class="cabecalho-principal">
+        <div id="LogoPuc">
+            <a href="../Area%20do%20Aluno/area_aluno.html">
+                <img src="../../../assets/Imagens/Logo_Puc.png" class="logo" alt="Logo da PUC Campinas">
+            </a>
+        </div>
+        <div id="texto">
+            <h1>Catálogo de Livros</h1>
+            <p>Consulte todos os livros disponíveis na biblioteca</p>
+        </div>
+    </header>
 
-  <header class="cabecalho">
-    <div class="logo">
-      <a href="../Area%20do%20Aluno/area_aluno.html">
-        <img src="../../../assets/Imagens/Logo_Puc.png" alt="Logo PUC Campinas" width="250">
-      </a>
-    </div>
+    <main>
+        <div id="conteudo" class="conteudo-livros">
+            <div class="loading">Carregando livros...</div>
+        </div>
+    </main>
 
-    <div id="TituloPagina">
-      <h1>Escolha um livro para emprestar</h1>
-    </div>
-
-    <p id="boasVindas" class="boasvindas"></p>
-  </header>
-
-  <section class="filtros-container">
-    <input id="searchInput" type="text" placeholder="Pesquisar por livro..." />
-    <button id="btnPesquisar" class="botao">Pesquisar</button>
-  </section>
-
-  <main id="conteudo">
-    <!-- js vai inserir os cards -->
-  </main>
-
-  <!-- js -->
-  <script src="emprestimo_livro.js" defer></script>
+    <script src="listagem_livros.js"></script>
 </body>
+
 </html>
