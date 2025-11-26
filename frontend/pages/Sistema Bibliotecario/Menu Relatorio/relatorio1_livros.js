@@ -28,7 +28,7 @@ async function carregarLivros() {
 
         const elementoTotal = document.querySelector('#TituloPagina p');
         if (elementoTotal) {
-            elementoTotal.textContent = `Total de livros cadastrados no sistema: ${data.totalLivros}`;
+            elementoTotal.innerHTML = `Total de livros cadastrados no sistema: <strong>${data.totalLivros}</strong>`;
         }
 
         tbody.innerHTML = "";
