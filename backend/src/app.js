@@ -5,6 +5,7 @@ const alunoRoutes = require('./routes/alunoRoutes');
 const livroRoutes = require('./routes/livroRoutes');
 const retiradaRoutes = require('./routes/retiradaRoutes');
 const devolucaoRoutes = require('./routes/devolucaoRoutes');
+const relatorio1Routes = require('./routes/relatorio1Routes');
 
 const app = express();
 app.use(cors({
@@ -34,7 +35,7 @@ app.use('/api/alunos', alunoRoutes);
 app.use('/api/livros', livroRoutes);
 app.use('/api/retirada', retiradaRoutes);
 app.use('/api/devolucao', devolucaoRoutes);
-app.use('/api/listagem', listagemRoutes);
+app.use('/api/relatorio1', relatorio1Routes);
 
 
 module.exports = app;

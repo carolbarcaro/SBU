@@ -7,7 +7,7 @@ const pool = require('../db'); // pool de conexões com o MySQL (mysql2/promise)
 router.get('/relatorio1', async (req, res) => { 
     try {
         const [livros] = await pool.query(
-            'SELECT id_lirvo, titulo, codigo, ano, editora, situacao FROM livro'
+            'SELECT id_livro, titulo, codigo, ano, editora, situacao FROM livro'
         ); 
         // SELECT busca todos os livros da tabela livro
         // o pool.query retorna um array onde o primeiro item é o resultado da query
