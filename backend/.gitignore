@@ -3,3 +3,6 @@
 # Dependências
 /node_modules
 /package-lock.json
+
+# Arquivos que não devem ir pro Git
+/src/db/index.js

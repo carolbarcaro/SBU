@@ -32,25 +32,31 @@
       </div>
 
       <div class="filtros-container">
-    <input type="text" id="searchInput" placeholder="Pesquisar por nome ou RA...">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Pesquisar por nome ou RA..."
+        />
 
-    <select id="filterLeitor">
-        <option value="">Todos os tipos</option>
-        <option value="Ouro">Leitor Ouro</option>
-        <option value="Prata">Leitor Prata</option>
-        <option value="Bronze">Leitor Bronze</option>
-    </select>
+        <select id="filterLeitor">
+          <option value="">Todos os tipos</option>
+          <option value="Iniciante">Leitor Iniciante</option>
+          <option value="Regular">Leitor Regular</option>
+          <option value="Ativo">Leitor Ativo</option>
+          <option value="Extremo">Leitor Extremo</option>
+        </select>
 
-     <div class="botao_enter">
-            <button class="botao" id="botao" type="submit">Pesquisar</button>
+        <div class="botao_enter">
+          <button class="botao" id="botao" type="submit">Pesquisar</button>
         </div>
-</div>
-
+      </div>
 
       <table class="tabela-alunos">
         <thead>
           <tr>
-            <th>Aluno</th>
+            <th>RA</th>
+            <th>Nome</th>
+            <th>Qtd. Livros</th>
             <th>Tipo de Leitor</th>
           </tr>
         </thead>
@@ -82,8 +88,6 @@
         </tbody>
       </table>
     </main>
-    <script>
-      src = "pontuacao_alunos.js";
-    </script>
+    <script src="pontuacao_alunos.js"></script>
   </body>
 </html>
