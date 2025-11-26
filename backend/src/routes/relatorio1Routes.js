@@ -13,21 +13,24 @@ router.get('/relatorio1', async (req, res) => {
         // o pool.query retorna um array onde o primeiro item é o resultado da query
 
         if (livros.length === 0) {
-            return res
-                .status(404)
-                .json({ message: "Nenhum livro encontrado no sistema." });
+            return res.status(404).json({ 
+                message: "Nenhum livro encontrado no sistema.",
+                totalLivros: 0,
+                livros: []
+            });
         }
 
-        res.status(200).json(livros); 
-        // retorna status 200 (sucesso) com a lista completa de livros em formato JSON
+        res.status(200).json({
+            totalLivros: livros.length, // essa linha faz com que exiba a qtd de livros cadastrados no front
+            livros: livros              
+        });
 
     } catch (error) {
-        console.error(error); // mostra no console qualquer erro inesperado
-
-        res
-            .status(500)
-            .json({ message: "Erro ao gerar o relatório. Tente novamente mais tarde." });
-        // 500 = erro interno do servidor
+        console.error(error);
+        res.status(500).json({ 
+            message: "Erro ao gerar o relatório. Tente novamente mais tarde.",
+            totalLivros: 0
+        });
     }
 });
 

@@ -16,8 +16,8 @@ async function carregarLivros() {
             throw new Error(`Erro HTTP: ${response.status}`);
         }
 
-        const livros = await response.json();
-        console.log('Livros recebidos:', livros);
+        const data = await response.json();
+        console.log('Dados recebidos:', data);
 
         const tbody = document.getElementById('corpoTabela');
         
@@ -26,14 +26,19 @@ async function carregarLivros() {
             return;
         }
 
+        const elementoTotal = document.querySelector('#TituloPagina p');
+        if (elementoTotal) {
+            elementoTotal.textContent = `Total de livros cadastrados no sistema: ${data.totalLivros}`;
+        }
+
         tbody.innerHTML = "";
 
-        if (livros.length === 0) {
+        if (data.livros.length === 0) {
             tbody.innerHTML = '<tr><td colspan="6">Nenhum livro cadastrado</td></tr>';
             return;
         }
 
-        livros.forEach(livro => {
+        data.livros.forEach(livro => {
             const tr = document.createElement('tr');
             tr.innerHTML = `
                 <td>${livro.id_livro || ''}</td>
