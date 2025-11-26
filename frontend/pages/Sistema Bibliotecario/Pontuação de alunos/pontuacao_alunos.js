@@ -51,9 +51,9 @@ function filtrarTabela() {
   const linhas = document.querySelectorAll(".tabela-alunos tbody tr");
 
   linhas.forEach((linha) => {
-    const nome = linha.querySelector("strong").innerText.toLowerCase();
-    const ra = linha.querySelector(".ra").innerText.toLowerCase();
-    const leitor = linha.children[1].innerText;
+    const ra = linha.children[0].innerText.toLowerCase();
+    const nome = linha.children[1].innerText.toLowerCase();
+    const leitor = linha.children[3].innerText; // classificação
 
     const combinaTexto = nome.includes(texto) || ra.includes(texto);
     const combinaLeitor = tipoLeitor === "" || leitor.includes(tipoLeitor);
@@ -61,6 +61,7 @@ function filtrarTabela() {
     linha.style.display = combinaTexto && combinaLeitor ? "" : "none";
   });
 }
+
 
 searchInput.addEventListener("input", filtrarTabela);
 filterLeitor.addEventListener("change", filtrarTabela);
