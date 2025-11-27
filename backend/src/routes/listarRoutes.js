@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require("../db");
 
 // listar todos os livros
-router.get("/livros", async (req, res) => {
+router.get("/listarlivros", async (req, res) => {
     try {
         const [rows] = await pool.query(
             "SELECT id_livro, titulo, codigo, ano, editora, situacao FROM livro"
