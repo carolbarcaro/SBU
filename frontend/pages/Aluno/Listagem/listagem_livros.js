@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             conteudo.innerHTML = '<div class="loading">Carregando livros...</div>';
             
             console.log('Buscando livros da API...');
-            todosLivros = await fetchJSON('http://localhost:3000/api/livros');
+            todosLivros = await fetchJSON('http://localhost:3000/api/listarlivros');
             console.log('Livros carregados:', todosLivros);
             
             if (todosLivros.length === 0) {
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Função para verificar se há livros novos
     async function verificarAtualizacoes() {
         try {
-            const livrosAtualizados = await fetchJSON('http://localhost:3000/api/livros');
+            const livrosAtualizados = await fetchJSON('http://localhost:3000/api/listarlivros');
             
             // Verifica se o número de livros mudou
             if (livrosAtualizados.length !== todosLivros.length) {
