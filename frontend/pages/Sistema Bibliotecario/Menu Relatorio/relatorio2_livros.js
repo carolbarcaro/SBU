@@ -2,65 +2,35 @@ async function carregarLivros() {
     try {
         console.log('Iniciando carregamento de livros...');
         
-        const rotasParaTestar = [
-            'http://localhost:3000/api/relatorios/relatorio2',
-            'http://localhost:3000/relatorios/relatorio2',
-            'http://localhost:3000/relatorio2'
-        ];
-
-        let response;
-        let data;
-        let success = false;
-
-        for (const rota of rotasParaTestar) {
-            try {
-                console.log('Tentando rota:', rota);
-                response = await fetch(rota, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    }
-                });
-                
-                if (response.ok) {
-                    data = await response.json();
-                    console.log('Rota funcionou:', rota);
-                    success = true;
-                    break;
-                } else {
-                    console.log(`Rota ${rota} retornou status: ${response.status}`);
-                }
-            } catch (e) {
-                console.log('Erro na rota:', rota, e.message);
-                continue;
-            }
+        const response = await fetch('http://localhost:3000/api/relatorios/relatorio2');
+        
+        console.log('Status da resposta:', response.status);
+        
+        if (!response.ok) {
+            throw new Error(`Erro HTTP: ${response.status} - ${response.statusText}`);
         }
 
-        if (!success) {
-            throw new Error('Nenhuma das rotas funcionou. Verifique a configuração do servidor.');
-        }
-
+        const data = await response.json();
         console.log('Dados recebidos:', data);
 
         const tbody = document.getElementById('corpoTabela');
-        
-        if (!tbody) {
-            console.error('Elemento corpoTabela não encontrado!');
-            return;
-        }
-
         const elementoTotal = document.querySelector('#TituloPagina p');
+        
+        // Atualiza o total
         if (elementoTotal) {
             elementoTotal.textContent = `Total de livros em atraso no sistema: ${data.totalLivros}`;
         }
 
+        // Limpa a tabela
         tbody.innerHTML = "";
 
-        if (data.livros.length === 0) {
+        // Se não há livros
+        if (!data.livros || data.livros.length === 0) {
             tbody.innerHTML = '<tr><td colspan="10" style="text-align: center;">Nenhum livro em atraso encontrado</td></tr>';
             return;
         }
 
+        // Preenche a tabela
         data.livros.forEach(livro => {
             const tr = document.createElement('tr');
             
@@ -77,12 +47,12 @@ async function carregarLivros() {
                 <td>${livro.data_emprestimo ? new Date(livro.data_emprestimo).toLocaleDateString('pt-BR') : ''}</td>
                 <td>${livro.ra || ''}</td>
                 <td>${livro.nome_aluno || ''}</td>
-                <td class="${classeAtraso}">${livro.dias_em_atraso ? `${livro.dias_em_atraso} dias` : ''}</td>
+                <td class="${classeAtraso}">${livro.dias_em_atraso ? `${livro.dias_em_atraso} dias` : '0 dias'}</td>
             `;
             tbody.appendChild(tr);
         });
 
-        console.log(`Tabela preenchida com ${data.livros.length} livros em atraso!`);
+        console.log(`Tabela preenchida com ${data.livros.length} livros!`);
 
     } catch (error) {
         console.error("Erro ao carregar livros:", error);
@@ -93,8 +63,11 @@ async function carregarLivros() {
                 <tr>
                     <td colspan="10" style="text-align: center; color: red; padding: 20px;">
                         <strong>Erro ao carregar dados</strong><br>
-                        ${error.message}<br>
-                        <small>Verifique se o servidor backend está rodando na porta 3000</small>
+                        ${error.message}<br><br>
+                        <strong>Verifique:</strong><br>
+                        1. Servidor está rodando (node server.js)<br>
+                        2. Banco de dados está conectado<br>
+                        3. Console para mais detalhes
                     </td>
                 </tr>
             `;
@@ -102,20 +75,23 @@ async function carregarLivros() {
     }
 }
 
+// Testa se o backend está respondendo
 async function testarBackend() {
     try {
-        const testResponse = await fetch('http://localhost:3000/api');
-        if (testResponse.ok) {
-            console.log('Backend está respondendo');
-        } else {
-            console.log('Backend não está respondendo corretamente');
-        }
-    } catch (e) {
-        console.log('Backend não está acessível');
+        const response = await fetch('http://localhost:3000/api');
+        const data = await response.json();
+        console.log('Backend OK:', data.message);
+        return true;
+    } catch (error) {
+        console.log('Backend OFFLINE:', error.message);
+        return false;
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    testarBackend();
-    carregarLivros();
+// Quando a página carregar
+document.addEventListener('DOMContentLoaded', async function() {
+    const backendOk = await testarBackend();
+    if (backendOk) {
+        carregarLivros();
+    }
 });

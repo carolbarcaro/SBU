@@ -36,28 +36,35 @@ router.get('/relatorio1', async (req, res) => {
 
 router.get('/relatorio2', async (req, res) => { 
     try {
-        const [livros] = await pool.query(
-            'SELECT l.id_livro, l.titulo, l.codigo, l.ano, l.editora, l.situacao, e.data_emprestimo, e.ra, e.id_emprestimo, a.nome as nome_aluno, DATEDIFF(CURDATE(), e.data_emprestimo) as dias_em_atraso FROM livro l INNER JOIN emprestimo e ON l.id_livro = e.id_livro INNER JOIN aluno a ON e.ra = a.ra WHERE l.situacao = "EMPRESTADO" AND e.data_devolucao IS NULL AND DATEDIFF(CURDATE(), e.data_emprestimo) > 3 ORDER BY dias_em_atraso DESC'
-            ); 
-
-        if (livros.length === 0) {
-            return res.status(404).json({ 
-                message: "Nenhum livro encontrado no sistema.",
-                totalLivros: 0,
-                livros: []
-            });
-        }
+        console.log('Tentando buscar livros em atraso...');
+        
+        const query = `
+            SELECT l.id_livro, l.titulo, l.codigo, l.ano, l.editora, l.situacao, 
+                   e.data_emprestimo, e.ra, a.nome as nome_aluno, 
+                   DATEDIFF(CURDATE(), e.data_emprestimo) as dias_em_atraso 
+            FROM livro l 
+            INNER JOIN emprestimo e ON l.id_livro = e.id_livro 
+            INNER JOIN aluno a ON e.ra = a.ra 
+            WHERE l.situacao = 'EMPRESTADO' 
+            AND e.data_devolucao IS NULL 
+            AND DATEDIFF(CURDATE(), e.data_emprestimo) > 3 
+            ORDER BY dias_em_atraso DESC
+        `;
+        
+        const [livros] = await pool.query(query);
+        console.log(`Encontrados ${livros.length} livros em atraso`);
 
         res.status(200).json({
-            totalLivros: livros.length, // essa linha faz com que exiba a qtd de livros cadastrados no front
+            totalLivros: livros.length,
             livros: livros              
         });
 
     } catch (error) {
-        console.error(error);
+        console.error('Erro no relatorio2:', error);
         res.status(500).json({ 
-            message: "Erro ao gerar o relatório. Tente novamente mais tarde.",
-            totalLivros: 0
+            message: "Erro ao gerar o relatório.",
+            totalLivros: 0,
+            livros: []
         });
     }
 });
