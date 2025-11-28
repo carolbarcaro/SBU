@@ -28,16 +28,27 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
-    // Carregar todos os livros do banco de dados
+    // Carregar todos os livros do banco de dados - CORREÇÃO AQUI
     async function carregarTodosLivros() {
         try {
             conteudo.innerHTML = '<div class="loading">Carregando livros...</div>';
             
             console.log('Buscando livros da API...');
-            todosLivros = await fetchJSON('http://localhost:3000/api/listarlivros');
-            console.log('Livros carregados:', todosLivros);
+            // CORREÇÃO: Use a rota correta do listarRoutes
+            const response = await fetch('http://localhost:3000/api/listarRoutes/listarlivros', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
             
-            if (todosLivros.length === 0) {
+            if (!response.ok) {
+                throw new Error(`Erro ${response.status}: ${response.statusText}`);
+            }
+            
+            const livros = await response.json();
+            
+            if (livros.length === 0) {
                 conteudo.innerHTML = `
                     <div class="vazio">
                         Nenhum livro cadastrado no sistema.
@@ -45,6 +56,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                     </div>
                 `;
             } else {
+                // CORREÇÃO: Atribuir à variável todosLivros
+                todosLivros = livros;
                 renderizarLivros(todosLivros);
             }
             
@@ -135,7 +148,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Função para verificar se há livros novos
     async function verificarAtualizacoes() {
         try {
-            const livrosAtualizados = await fetchJSON('http://localhost:3000/api/listarlivros');
+            const livrosAtualizados = await fetchJSON('http://localhost:3000/api/listarRoutes/listarlivros');
             
             // Verifica se o número de livros mudou
             if (livrosAtualizados.length !== todosLivros.length) {
