@@ -4,33 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="relatorio2_livros_sem_devolucao.css">
+    <link rel="stylesheet" href="relatorio1_livros.css">
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <title>Todos Os Livros</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Livros em atraso</title>
 </head>
 
 <body>
     <header id="Header">
         <p id="textHeader">o o o</p>
+
+        <a href="../Menu Relatorio/menu_relatorios.html" id="linkDoBotao"><button type="button" id="botaoVoltarPagina"><i class="fa-solid fa-arrow-left"></i> PÁGINA ANTERIOR</button></a>
     </header>
+
     <main>
         <div class="cabecalho">
+
             <div id="LogoPuc">
             <a href="../Menu Relatorio/menu_relatorios.html">
                 <img  src="../../../assets/Imagens/Logo_Puc.png" class="logo" alt="Logo da PUC Campinas" width="215vw" height="90vh">
             </a>
             </div>
+
             <div id="TituloPagina">
-                <h1 class="Titulo-da-pagina">Relatório Lista De Todos Os Livros Sem Devoluções</h1>
+                <h1>Livros em atraso</h1>
+                <p>Total de livros em atraso no sistema:</p>
             </div>
+
         </div>
-        <div class="CaixaTotalLivros">
-            <div class="TituloCTL">
-            <p>Quantidade De Livros Emprestados Sem Devolução:</p>
-            </div>
+
+        <div class="espacoTabela">
+            <table id="tabelaLivros">
+                <thead>
+                    <tr>
+                        <th>ID Livro</th>
+                        <th>Título</th>
+                        <th>Código</th>
+                        <th>Ano</th>
+                        <th>Editora</th>
+                        <th>Situação</th>
+                        <th>Data Empréstimo</th>
+                        <th>RA do Aluno</th>
+                        <th>Nome do Aluno</th>
+                        <th>Dias em Atraso</th>
+                    </tr>
+                </thead>
+                <tbody id="corpoTabela">
+
+                </tbody>
+            </table>
         </div>
-        <div class="CaixaTotalNomeLivros">
-            <div class="TituloCTNL">
-            <p>Livros Sem Devolução:</p>
-            </div>
-        </div>
+    </main>
+
+    <script src="relatorio2_livros.js"></script>
+</body>

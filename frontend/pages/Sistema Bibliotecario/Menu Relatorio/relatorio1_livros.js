@@ -3,7 +3,7 @@ async function carregarLivros() {
         console.log('Iniciando carregamento de livros...');
         
         // Tente estas rotas alternativas:
-        const response = await fetch('http://localhost:3000/api/relatorio1/relatorio1', {
+        const response = await fetch('http://localhost:3000/api/relatorios/relatorio1', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
