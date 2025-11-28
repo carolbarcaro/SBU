@@ -103,23 +103,28 @@ p {
 }
 
 table {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
     font-family: "Poppins", sans-serif;
-    width: 75%;
-    border-collapse: separate;
-    border-spacing: 0;
-    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+    border-radius: 12px;
     overflow: hidden;
 }
 
 td {
-    border: 1px solid #000000;
-    padding: 8px;
+    padding: 16px;
+    background-color: #f8f8f8;
+    font-size: 18px;
+    color: rgb(20, 20, 20);
+    border-bottom: 1px solid #ccc;
 }
         
 th {
-    border: 1px solid #000000;
-    background-color: #fde171b0;
-    border: 2px solid #fde071;
-    padding: 8px;
-    color: rgb(1, 1, 90);
+    background-color: rgb(1, 1, 90);
+    color: white;
+    padding: 16px;
+    font-size: 20px;
+    text-align: left;
+    border-bottom: 4px solid rgba(255, 255, 0, 0.799);
 }
