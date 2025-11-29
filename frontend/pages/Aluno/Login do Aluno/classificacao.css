@@ -9,6 +9,9 @@
 body{
   font-family: "Poppins", sans-serif;
   background: #fff;
+  color: #222;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* barra topo */
@@ -45,7 +48,8 @@ body{
   text-align: center;
 }
 
-.boasvindas{
+/* Ajuste para o elemento de boas-vindas (ID usado no JS) */
+#boasVindas{
   margin-top: -10px;
   color: rgb(1, 1, 90);
   font-size: 18px;
@@ -60,40 +64,52 @@ body{
   justify-content: center;
   gap: 16px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 #searchInput {
   width: 350px;
+  max-width: 100%;
   padding: 12px;
   font-size: 18px;
   border: 3px solid rgba(255, 255, 0, 0.799);
   border-radius: 10px;
   outline: none;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
 }
 
 #searchInput:focus {
   border-color: rgb(1, 1, 90);
+  box-shadow: 0 8px 20px rgba(1,1,90,0.08);
+  transform: translateY(-1px);
 }
 
+/* botão principal */
 .botao{
   background-color: #fde071;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  padding: 14px 26px;
+  padding: 12px 20px;
   font-size: 16px;
   color: black;
-  font-weight: bold;
+  font-weight: 700;
   font-family: "Poppins", sans-serif;
-  transition: all 0.3s;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
 }
 
 .botao:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.16);
 }
 
+.botao:active {
+  transform: translateY(-1px);
+}
+
+/* área principal */
 main#conteudo{
   width: 100%;
   max-width: 1100px;
@@ -105,12 +121,13 @@ main#conteudo{
   align-items: center;
 }
 
+/* cartão de classificação */
 .card-classificacao{
   width: 100%;
   max-width: 520px;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   background: white;
   border: 1px solid #e6e6e6;
 }
@@ -123,8 +140,25 @@ main#conteudo{
   font-weight: 600;
   text-align: center;
   border-bottom: 4px solid rgba(255, 255, 0, 0.799);
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
 }
 
+/* badge de fonte (pequeno e discreto) */
+.card-classificacao .card-header .fonte {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+}
+
+/* corpo do cartão */
 .card-classificacao .card-body{
   padding: 20px;
   text-align: center;
@@ -142,56 +176,127 @@ main#conteudo{
   color: #222;
 }
 
+/* tabela de livros */
 .tabela-alunos {
   width: 90%;
+  max-width: 980px;
   margin: 0 auto;
   border-collapse: collapse;
   font-family: "Poppins", sans-serif;
-  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.08);
   border-radius: 12px;
   overflow: hidden;
 }
 
 /* Cabeçalho */
-.tabela-alunos th {
+.tabela-alunos thead th {
   background-color: rgb(1, 1, 90);
   color: white;
-  padding: 16px;
-  font-size: 20px;
+  padding: 14px 16px;
+  font-size: 16px;
   text-align: left;
   border-bottom: 4px solid rgba(255, 255, 0, 0.799);
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 /* Células */
 .tabela-alunos td {
-  padding: 16px;
+  padding: 14px 16px;
   background-color: #f8f8f8;
-  font-size: 18px;
+  font-size: 16px;
   color: rgb(20, 20, 20);
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #e0e0e0;
+  vertical-align: middle;
 }
 
 /* Nome destaque */
 .tabela-alunos strong {
-  font-size: 20px;
+  font-size: 16px;
   color: rgb(1, 1, 90);
 }
 
 /* Alternância */
 .tabela-alunos tr:nth-child(even) td {
-  background-color: #eeeeee;
+  background-color: #fafafa;
 }
 
 /* Hover */
 .tabela-alunos tr:hover td {
-  background-color: rgba(255, 255, 0, 0.15);
-  transition: 0.3s;
+  background-color: rgba(253, 224, 113, 0.14);
+  transition: background-color 0.2s ease;
 }
 
+/* coluna de data/hora com estilo menor */
+.tabela-alunos .data-hora {
+  font-size: 14px;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* destaque do horário separado */
+.tabela-alunos .data-hora .horario {
+  font-size: 13px;
+  color: #666;
+  opacity: 0.95;
+}
+
+/* mensagem vazio */
 .vazio{
   width: 90%;
   margin: 10px auto 30px;
   text-align: center;
   font-size: 18px;
   color: #444;
+}
+
+/* Mensagem de erro simples */
+.erro {
+  width: 90%;
+  margin: 10px auto 30px;
+  text-align: center;
+  font-size: 16px;
+  color: #b00020;
+}
+
+/* Acessibilidade: foco visível */
+:focus {
+  outline: 3px solid rgba(1,1,90,0.18);
+  outline-offset: 2px;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .card-classificacao { max-width: 100%; }
+  .tabela-alunos { width: 95%; }
+  .filtros-container { gap: 10px; padding: 0 8px; }
+  #searchInput { width: calc(100% - 140px); }
+  .botao { padding: 10px 14px; font-size: 15px; }
+}
+
+@media (max-width: 600px) {
+  .tabela-alunos thead { display: none; } /* simplifica visual em telas pequenas */
+  .tabela-alunos, .tabela-alunos tbody, .tabela-alunos tr, .tabela-alunos td {
+    display: block;
+    width: 100%;
+  }
+  .tabela-alunos tr { margin-bottom: 12px; border-radius: 8px; overflow: hidden; box-shadow: 0 6px 12px rgba(0,0,0,0.05); }
+  .tabela-alunos td {
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .tabela-alunos td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #333;
+    margin-right: 8px;
+  }
+  /* ajustar texto no cartão */
+  .card-classificacao .nivel { font-size: 22px; }
+  .card-classificacao .total { font-size: 16px; }
 }
