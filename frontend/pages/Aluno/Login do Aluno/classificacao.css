@@ -10,126 +10,82 @@ body{
   font-family: "Poppins", sans-serif;
   background: #fff;
   color: #222;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-/* barra topo */
 #Header{
   background-color: rgb(1, 1, 90);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1%;
 }
+
 #textHeader{
   color: antiquewhite;
-  padding: 0.8%;
-  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
 }
 
-/* cabeçalho */
+#linkDoBotao {
+  text-decoration: none;
+}
+
+#botaoVoltarPagina {
+  border: none;
+  background-color: rgba(8, 38, 138, 0.445);
+  color: antiquewhite;
+  padding: 0.2rem 0.6rem;
+  font-size: 14px;
+  transition: all 0.3s;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#botaoVoltarPagina:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.3);
+}
+
 .cabecalho{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+  padding: 2% 4%;
 }
-
-.logo{
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  padding: 3% 4%;
-}
-
-#TituloPagina{
-  padding: 1%;
-  display: flex;
-  justify-content: center;
+#TituloPagina h1{
   color: rgb(1, 1, 90);
-  font-size: 28px;
+  font-size: 50px;
   font-weight: 800;
-  text-align: center;
 }
 
-/* Ajuste para o elemento de boas-vindas (ID usado no JS) */
 #boasVindas{
-  margin-top: -10px;
   color: rgb(1, 1, 90);
   font-size: 18px;
-  font-weight: 500;
+  text-align: right;
+  margin-right: 10px;
 }
 
-/* filtros */
-.filtros-container {
-  width: 90%;
-  margin: 20px auto 10px;
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-#searchInput {
-  width: 350px;
-  max-width: 100%;
-  padding: 12px;
-  font-size: 18px;
-  border: 3px solid rgba(255, 255, 0, 0.799);
-  border-radius: 10px;
-  outline: none;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
-}
-
-#searchInput:focus {
-  border-color: rgb(1, 1, 90);
-  box-shadow: 0 8px 20px rgba(1,1,90,0.08);
-  transform: translateY(-1px);
-}
-
-/* botão principal */
-.botao{
-  background-color: #fde071;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  padding: 12px 20px;
-  font-size: 16px;
-  color: black;
-  font-weight: 700;
-  font-family: "Poppins", sans-serif;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-}
-
-.botao:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.16);
-}
-
-.botao:active {
-  transform: translateY(-1px);
-}
-
-/* área principal */
 main#conteudo{
   width: 100%;
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 20px auto 40px;
   padding: 0 20px;
   display: flex;
   flex-direction: column;
   gap: 25px;
-  align-items: center;
+  align-items: stretch;
 }
 
-/* cartão de classificação */
 .card-classificacao{
   width: 100%;
   max-width: 520px;
+  margin: 0 auto; /* centraliza */
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  background: white;
   border: 1px solid #e6e6e6;
+  background: white;
 }
 
 .card-classificacao .card-header{
@@ -140,111 +96,59 @@ main#conteudo{
   font-weight: 600;
   text-align: center;
   border-bottom: 4px solid rgba(255, 255, 0, 0.799);
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  align-items: center;
-}
-
-/* badge de fonte (pequeno e discreto) */
-.card-classificacao .card-header .fonte {
-  background: rgba(255,255,255,0.12);
-  color: #fff;
-  padding: 4px 8px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .6px;
-}
-
-/* corpo do cartão */
-.card-classificacao .card-body{
-  padding: 20px;
-  text-align: center;
 }
 
 .card-classificacao .nivel{
-  font-size: 26px;
+  text-align: center;
+  font-size: 22px;
   font-weight: 800;
-  color: rgb(1, 1, 90);
-  margin-bottom: 6px;
+  color: rgb(1,1,90);
+  margin: 10px 0 4px;
 }
 
-.card-classificacao .total{
-  font-size: 18px;
-  color: #222;
+.card-classificacao .card-body{
+  padding: 14px 18px;
+  text-align: left;
 }
 
-/* tabela de livros */
 .tabela-alunos {
   width: 90%;
-  max-width: 980px;
-  margin: 0 auto;
+  max-width: 1200px;
+  margin: 30px auto;
   border-collapse: collapse;
   font-family: "Poppins", sans-serif;
-  box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
   border-radius: 12px;
   overflow: hidden;
 }
 
-/* Cabeçalho */
-.tabela-alunos thead th {
+.tabela-alunos thead th,
+.tabela-alunos th {
   background-color: rgb(1, 1, 90);
   color: white;
-  padding: 14px 16px;
-  font-size: 16px;
+  padding: 16px;
+  font-size: 20px;
   text-align: left;
   border-bottom: 4px solid rgba(255, 255, 0, 0.799);
-  position: sticky;
-  top: 0;
-  z-index: 2;
 }
 
-/* Células */
-.tabela-alunos td {
-  padding: 14px 16px;
+.tabela-alunos td{
+  padding: 16px;
   background-color: #f8f8f8;
-  font-size: 16px;
+  font-size: 18px;
   color: rgb(20, 20, 20);
-  border-bottom: 1px solid #e0e0e0;
-  vertical-align: middle;
+  border-bottom: 1px solid #ccc;
 }
 
-/* Nome destaque */
-.tabela-alunos strong {
-  font-size: 16px;
-  color: rgb(1, 1, 90);
-}
-
-/* Alternância */
 .tabela-alunos tr:nth-child(even) td {
   background-color: #fafafa;
 }
 
-/* Hover */
 .tabela-alunos tr:hover td {
-  background-color: rgba(253, 224, 113, 0.14);
-  transition: background-color 0.2s ease;
+  background-color: rgba(253, 224, 113, 0.08);
+  transition: 0.2s ease;
 }
 
-/* coluna de data/hora com estilo menor */
-.tabela-alunos .data-hora {
-  font-size: 14px;
-  color: #555;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-/* destaque do horário separado */
-.tabela-alunos .data-hora .horario {
-  font-size: 13px;
-  color: #666;
-  opacity: 0.95;
-}
-
-/* mensagem vazio */
 .vazio{
   width: 90%;
   margin: 10px auto 30px;
@@ -253,8 +157,47 @@ main#conteudo{
   color: #444;
 }
 
-/* Mensagem de erro simples */
-.erro {
+.user-btn {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.user-btn img {
+    width: 28px;
+}
+
+.user-menu {
+    position: fixed;
+    top: 85px;
+    right: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.20);
+    padding: 10px;
+    display: none;
+    z-index: 9999;
+}
+
+.user-menu a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+
+.erro{
   width: 90%;
   margin: 10px auto 30px;
   text-align: center;
@@ -262,41 +205,23 @@ main#conteudo{
   color: #b00020;
 }
 
-/* Acessibilidade: foco visível */
-:focus {
-  outline: 3px solid rgba(1,1,90,0.18);
-  outline-offset: 2px;
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-/* Responsividade */
-@media (max-width: 900px) {
-  .card-classificacao { max-width: 100%; }
-  .tabela-alunos { width: 95%; }
-  .filtros-container { gap: 10px; padding: 0 8px; }
-  #searchInput { width: calc(100% - 140px); }
-  .botao { padding: 10px 14px; font-size: 15px; }
+main#conteudo {
+  width: 100% !important;
+  max-width: none !important;
+  padding-left: 40px !important; 
+  padding-right: 40px !important;
+  align-items: stretch !important;
 }
 
-@media (max-width: 600px) {
-  .tabela-alunos thead { display: none; } /* simplifica visual em telas pequenas */
-  .tabela-alunos, .tabela-alunos tbody, .tabela-alunos tr, .tabela-alunos td {
-    display: block;
-    width: 100%;
-  }
-  .tabela-alunos tr { margin-bottom: 12px; border-radius: 8px; overflow: hidden; box-shadow: 0 6px 12px rgba(0,0,0,0.05); }
-  .tabela-alunos td {
-    padding: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .tabela-alunos td::before {
-    content: attr(data-label);
-    font-weight: 600;
-    color: #333;
-    margin-right: 8px;
-  }
-  /* ajustar texto no cartão */
-  .card-classificacao .nivel { font-size: 22px; }
-  .card-classificacao .total { font-size: 16px; }
+.tabela-alunos {
+  width: 95% !important;
+  max-width: 1600px !important;
+  margin: 30px auto !important;
 }

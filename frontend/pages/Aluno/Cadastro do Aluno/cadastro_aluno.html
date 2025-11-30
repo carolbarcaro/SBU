@@ -6,28 +6,44 @@
     <title>Cadastro do Aluno PUC-Campinas</title>
     <link rel="stylesheet" href="cadastro_aluno.css" />
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
-    <header id="topo">
-        <p id="texttopo">o o o</p>
+
+    <!-- BARRA SUPERIOR AZUL -->
+    <header id="Header">
+        <p id="textHeader">o o o</p>
+
+        <a href="../Area%20do%20Aluno/area_aluno.html" id="linkDoBotao">
+          <button type="button" id="botaoVoltarPagina">
+            <i class="fa-solid fa-arrow-left"></i> PÁGINA ANTERIOR
+          </button>
+        </a>
     </header>
 
-    <header>
+    <!-- CABEÇALHO PRINCIPAL: logo (ESQ) + título (DIR) -->
+    <div class="cabecalho">
         <div id="LogoPuc">
             <a href="../Area%20do%20Aluno/area_aluno.html">
-            <img  src="../../../assets/Imagens/Logo_Puc.png" class="logo" alt="Logo da PUC Campinas">
+                <!-- removi os atributos vw/vh problemáticos -->
+                <img src="../../../assets/Imagens/Logo_Puc.png"
+                     class="logo"
+                     alt="Logo da PUC Campinas">
             </a>
         </div>
-        <div id="texto">
+
+        <!-- título alinhado à direita dentro do mesmo .cabecalho -->
+        <div id="TituloPagina">
             <h1>Complete seu cadastro!</h1>
             <p>Bem-vindo ao sistema de gestão bibliotecário</p>
         </div>
-    </header>
+    </div>
 
+    <!-- CONTAINER CENTRAL (garante centralização do form) -->
     <main>
+      <div class="container">
         <form class="formAluno" id="formAluno" action="#" method="post">
+            <!-- Coluna esquerda -->
             <div id="leftRow">
                 <div class="inputGroup">
                     <label class="label" for="nome">Nome:</label>
@@ -39,24 +55,32 @@
                     <input class="input" type="text" id="ra" name="ra" placeholder="Digite seu RA" pattern="\d{8}" title="Informe 8 dígitos" required>
                 </div>
             </div>
+
+            <!-- Coluna direita -->
             <div id="rightRow">
                 <div class="inputGroup">
                     <label class="label" for="email">Email:</label>
                     <input class="input" type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
                 </div>
+
                 <div class="inputGroup">
                     <label class="label" for="telefone">Telefone:</label>
                     <input class="input" type="tel" id="telefone" name="telefone" placeholder="Digite seu telefone">
                 </div>
             </div>
-            <div id="toast-sucesso" role="status" aria-live="polite"></div> 
-            <div id="toast-erro" role="alert" aria-live="assertive"></div> 
-        </form>
-        <div class="botao_enter">
-            <button  class="botaoEnvio" id="botaoEnvio" type="submit" form="formAluno">Cadastrar</button>
-            <a href="../Login%20do%20Aluno/login_aluno.html"><button class="caixa" type="button">Login</button></a>
-        </div>
 
+            <div id="toast-sucesso" role="status" aria-live="polite"></div>
+            <div id="toast-erro" role="alert" aria-live="assertive"></div>
+        </form>
+      </div>
+
+      <!-- botões centralizados abaixo da caixa -->
+      <div class="botao_enter">
+          <button class="botaoEnvio" id="botaoEnvio" type="submit" form="formAluno">Cadastrar</button>
+          <a href="../Login%20do%20Aluno/login_aluno.html">
+              <button class="caixa" type="button">Login</button>
+          </a>
+      </div>
     </main>
 
     <script src="cadastro_aluno.js"></script>
