@@ -94,42 +94,50 @@ router.post("/devolucaoLivro", async (req, res) => {
     );
 
     try {
-      
-      // se já existe na tabela leitura um registro desse alunos
-      const [leituraExistente] = await pool.query(
-        "SELECT qtd_livros FROM leituras WHERE id_aluno = ?",
+      // calcula quantos livros o aluno devolveu nos últimos 6 meses
+      const [totalDevolucoes] = await pool.query(
+        `SELECT COUNT(*) AS total
+       FROM devolucao
+       WHERE ra = ?
+         AND data_devolucao >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH)`,
         [ra]
       );
 
-      // adiciona + 1 na qtd livros
-      if (leituraExistente.length > 0) {
-        // JÁ EXISTE - atualiza incrementando +1
-        const qtdAtual = leituraExistente[0].qtd_livros;
-        const novaQtd = qtdAtual + 1;
+      const qtdLivros = totalDevolucoes[0].total;
 
-        // calcula a nova pontuação
-        let novaPontuacao;
-        if (novaQtd <= 5) {
-          novaPontuacao = "INICIANTE";
-        } else if (novaQtd <= 10) {
-          novaPontuacao = "REGULAR";
-        } else if (novaQtd <= 20) {
-          novaPontuacao = "ATIVO";
-        } else {
-          novaPontuacao = "EXTREMO";
-        }
-
-        await pool.query(
-          "UPDATE leituras SET qtd_livros = ?, pontuacao = ? WHERE id_aluno = ?",
-          [novaQtd, novaPontuacao, ra]
-        );
-
+      // calcula a pontuação com base na nova quantidade
+      let novaPontuacao;
+      if (qtdLivros <= 5) {
+        novaPontuacao = "INICIANTE";
+      } else if (qtdLivros <= 10) {
+        novaPontuacao = "REGULAR";
+      } else if (qtdLivros <= 20) {
+        novaPontuacao = "ATIVO";
       } else {
-        // se não existe registro do launo em leituras
-        // cria um registro com qtd livros = 1
+        novaPontuacao = "EXTREMO";
+      }
+
+      // verifica se já existe registro na tabela leituras
+      const [leituraExistente] = await pool.query(
+        "SELECT codigo FROM leituras WHERE id_aluno = ?",
+        [ra]
+      );
+
+      if (leituraExistente.length > 0) {
+        // ATUALIZA
         await pool.query(
-          `INSERT INTO leituras (id_aluno, qtd_livros, pontuacao) VALUES (?, ?, ?)`,
-          [ra, 1, "INICIANTE"]
+          `UPDATE leituras 
+         SET qtd_livros = ?, 
+             pontuacao = ?
+       WHERE id_aluno = ?`,
+          [qtdLivros, novaPontuacao, ra]
+        );
+      } else {
+        // CRIA NOVO REGISTRO
+        await pool.query(
+          `INSERT INTO leituras (id_aluno, qtd_livros, pontuacao)
+         VALUES (?, ?, ?)`,
+          [ra, qtdLivros, novaPontuacao]
         );
       }
     } catch (err) {
