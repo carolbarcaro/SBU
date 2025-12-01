@@ -150,4 +150,30 @@ router.get('/livros-lidos/:ra', async (req, res) => {
   }
 });
 
+
+router.get("/leituras", async (req, res) => {
+  try {
+    const sql = `
+      SELECT 
+        l.id_aluno,
+        a.nome AS nome_aluno,
+        l.qtd_livros,
+        l.pontuacao
+      FROM leituras l
+      JOIN aluno a ON a.ra = l.id_aluno
+    `;
+
+    const [rows] = await pool.query(sql);
+
+    res.json(rows);
+  } catch (error) {
+    console.error('Erro ao fazer login do aluno:', error);
+    res.status(500).json({ error: 'Erro ao fazer login.' });
+    console.error("Erro ao fazer login do aluno:", error);
+    res.status(500).json({ error: "Erro ao fazer login." });
+    console.error("Erro ao buscar leituras:", error);
+    res.status(500).json({ error: "Erro ao buscar leituras." });
+  }
+});
+
 module.exports = router;
