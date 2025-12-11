@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
 
 // cadastrar novo aluno
 
-router.post('/', async (req, res) => {
+router.post('/cadastro', async (req, res) => {
   try {
     const { nome, ra, email, telefone } = req.body;
 
@@ -109,25 +109,6 @@ router.get('/classificacao/:ra', async (req, res) => {
   }
 });
 
- // se não existir registro, retorna 0
-router.get('/pontuacao/:ra', async (req, res) => {
-  const { ra } = req.params;
-
-  try {
-    const [rows] = await pool.query(
-      'SELECT qtd_livros FROM leituras WHERE id_aluno = ?',
-      [ra]
-    );
-
-    const qtd = rows.length > 0 ? (rows[0].qtd_livros || 0) : 0;
-    const pontos = qtd * 10;
-    return res.json({ total: pontos });
-  } catch (error) {
-    console.error('Erro ao buscar pontuacao:', error);
-    res.status(500).json({ error: 'Erro ao buscar pontuação.' });
-  }
-});
-
 // lista os livros lidos pelo aluno, pra mostar na listagem do front
 
 router.get('/livros-lidos/:ra', async (req, res) => {
@@ -149,6 +130,7 @@ router.get('/livros-lidos/:ra', async (req, res) => {
     res.status(500).json({ error: 'Erro ao buscar livros lidos.' });
   }
 });
+
 
 router.get("/leituras", async (req, res) => {
   try {
