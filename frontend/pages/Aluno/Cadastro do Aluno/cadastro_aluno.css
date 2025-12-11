@@ -50,9 +50,8 @@
     margin-top: 75px;                  /* empurra o conteúdo para os cantos */
 }
 
-
 #LogoPuc{
-  padding: 0;           /* padding grande para não empurrar o layout */
+  padding: 0;           
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -186,7 +185,7 @@ main {
   box-shadow: 0 8px 18px rgba(0,0,0,0.08);
 }
 
-.botao:hover, .botaoEnvio:hover{
+.botaoLogin:hover, .botaoEnvio:hover{
   transform: translateY(-2px);
   box-shadow: 0 12px 20px rgba(0,0,0,0.4);
 }
