@@ -20,16 +20,15 @@ html, body {
   align-items: center;
   justify-content: flex-start; 
   gap: 12px;                   
-  padding: 25px 28px;
+  padding: 12px 28px;
   width: 100%;
   box-shadow: 0 1px 0 rgba(0,0,0,0.04);
   z-index: 20;
 }
 
-/* três pontinhos / texto pequeno no topo */
 #textHeader {
   color: antiquewhite;
-  font-size: 15px;
+  font-size: 20px;
   opacity: 0.95;
   margin-right: 6px;
 }
@@ -41,7 +40,7 @@ html, body {
 
 #botaoVoltarPagina {
   border: none;
-  background-color: rgba(8, 38, 138, 0.7);
+  background-color: rgba(8, 38, 138, 0.445);
   color: antiquewhite;
   padding: 6px 10px;
   font-size: 13px;
@@ -60,6 +59,7 @@ html, body {
     align-items: center;
     padding: 22px 60px;   /* espaçamento como nas outras telas */
     background: white;
+    margin-top: 30 px;
 }
 
 #texto {
@@ -91,8 +91,8 @@ main {
     background:#07075b;
     color:#fff;
     width: 150%;
-    max-width: 800px;          /* controla a largura máxima */
-    margin : 150px auto;          /* centraliza na página */
+    max-width: 800px; /* controla a largura máxima */
+    margin-top: 50px;  
     padding: 30px 100px;        /* respiro interno */
     border:1px solid #fde071; /* contorno amarelinho */
     border-radius:12px;
@@ -144,7 +144,7 @@ main {
 .botao-wrapper {
   text-align: center;
   padding: 2%;
-  margin-top: -150px;
+  margin-top: -40px;
 
 }
 

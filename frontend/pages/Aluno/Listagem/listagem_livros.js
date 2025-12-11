@@ -1,13 +1,4 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    // Verificar se o usuário está logado
-    const ra = localStorage.getItem("ra_logado");
-    const nome = localStorage.getItem("nome_logado");
-
-    if (!ra) {
-        alert("Sessão expirada. Faça login novamente.");
-        window.location.href = "../Login%20do%20Aluno/login_aluno.html";
-        return;
-    }
 
     const conteudo = document.getElementById("conteudo");
 
@@ -28,13 +19,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
-    // Carregar todos os livros do banco de dados - CORREÇÃO AQUI
+    // Carregar todos os livros do banco de dado
     async function carregarTodosLivros() {
         try {
             conteudo.innerHTML = '<div class="loading">Carregando livros...</div>';
             
             console.log('Buscando livros da API...');
-            // CORREÇÃO: Use a rota correta do listarRoutes
+            // Use a rota correta do listarRoutes
             const response = await fetch('http://localhost:3000/api/listarRoutes/listarlivros', {
                 method: 'GET',
                 headers: {
@@ -56,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     </div>
                 `;
             } else {
-                // CORREÇÃO: Atribuir à variável todosLivros
+                //Atribuir à variável todosLivros
                 todosLivros = livros;
                 renderizarLivros(todosLivros);
             }

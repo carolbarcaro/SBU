@@ -150,7 +150,6 @@ router.get('/livros-lidos/:ra', async (req, res) => {
   }
 });
 
-
 router.get("/leituras", async (req, res) => {
   try {
     const sql = `
